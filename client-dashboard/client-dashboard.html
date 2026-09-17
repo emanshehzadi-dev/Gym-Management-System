@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard | Gym Management System</title>
+    <link rel="stylesheet" href="client-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+    <div class="client-dashboard">
+        <div class="sidebar">
+            <h2 class="sidebar-header">Gym Management</h2>
+            <div class="sidebar-menu">
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#dashboard"><i class="fa-solid fa-chart-bar fa-beat"></i> Dashboard</a></li>
+                        <li><a href="#my-profile"><i class="fa-solid fa-id-card fa-bounce"></i> My Profile</a></li>
+                        <li><a href="#my-membership"><i class="fa-solid fa-id-badge fa-beat"></i> My Membership</a></li>
+                        <li><a href="#my-training"><i class="fa-solid fa-dumbbell fa-bounce"></i> My Training</a></li>
+                        <li><a href="#attendance"><i class="fa-solid fa-user-check fa-beat"></i> Attendance</a></li>
+                        <li><a href="#gym-facilities"> <i class="fa-solid fa-toolbox fa-flip"></i> Gym Facilities</a></li>
+                        <li><a href="#notifications"><i class="fa-solid fa-bell fa-shake"></i> Notifications</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="#" class="logout-link"><i class="fa-solid fa-door-closed fa-beat"></i> Logout</a>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="dashboard-header" id="dashboard">
+                <h2 class="dashboard-title">Dashboard</h2>
+                <button class="theme-toggle">🌙</button>
+            </div>
+
+            <div class="overview-section">
+                <div class="overview-cards">
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Membership Status</h3>
+                        <div class="card-value"></div>
+                    </div>
+
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Selected Package</h3>
+                        <div class="card-value"></div>
+                    </div>
+
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Training Time</h3>
+                        <div class="card-value"></div>
+                    </div>
+
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Trainer</h3>
+                        <div class="card-value"></div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="my-profile-section" id="my-profile">
+                <h2 class="section-title">My Profile</h2>
+                <div class="profile-card">
+                    <p>Client ID</p>
+                    <p>Full Name</p>
+                    <p>Date of Birth</p>
+                    <p>Gender</p>
+                    <p>CNIC</p>
+                    <p>Phone Number</p>
+                    <p>Email</p>
+                    <p>Address</p>
+                </div>
+            </div>
+
+            <div class="my-membership-section" id="my-membership">
+                <h2 class="section-title">My Membership</h2>
+                <div class="membership-card">
+                    <p>Selected Package</p>
+                    <p>Duration & Fee</p>
+                    <p>Membership Status</p>
+                    <p>Entry Date</p>
+                    <p>Expiry Date</p>
+                </div>
+            </div>
+
+
+            <div class="my-training-section" id="my-training">
+                <h2 class="section-title">My Training</h2>
+                <div class="training-card">
+                    <p>Training Mode</p>
+                    <p>Trainer Name</p>
+                    <p>Training Time</p>
+                </div>
+            </div>
+
+
+
+            <div class="attendance-section" id="attendance">
+                <h2 class="section-title">Attendance</h2>
+                <div class="attendance-list">
+                    <div class="attendance-card">
+                        <p>Client ID</p>
+                        <p>Date</p>
+                        <p>Training Time</p>
+                        <p>Attendance Status</p>
+                        <p>Attendance Percentage</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gym-facilities-section" id="gym-facilities">
+                <h2 class="section-title">Gym Facilities</h2>
+                <div class="facilities-list">
+
+                    <div class="facility-item">
+                        <p>Gym Equipment</p>
+                    </div>
+
+
+                      <div class="facility-item">
+                        <p>Cardio Area</p>
+                    </div>
+
+
+                      <div class="facility-item">
+                        <p>Weight Training Area</p>
+                    </div>
+
+
+                      <div class="facility-item">
+                        <p>Changing Room</p>
+                    </div>
+
+
+                      <div class="facility-item">
+                        <p>Refreshment</p>
+                    </div>
+
+
+                      <div class="facility-item">
+                        <p>Kitchen / Coffee Area</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="notification-section" id="notifications">
+                <h2 class="section-title">Notifications</h2>
+                <div class="notification-list">
+
+
+                     <div class="notification-item">
+                        <p>Admission Approved</p>
+                    </div>
+
+
+                     <div class="notification-item">
+                        <p>Client ID Generated</p>
+                    </div>
+
+
+                     <div class="notification-item">
+                        <p>Trainer Assigned</p>
+                    </div>
+
+
+                     <div class="notification-item">
+                        <p>Training Schedule Updated</p>
+                    </div>
+
+                     <div class="notification-item">
+                        <p>Membership Expiring Soon</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,537 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ==============================
+RESET
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==============================
+BODY
+================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* background: #343b40; */
+     background:  #14191d;  
+    color: #ffffff;
+}
+
+
+/* ==============================
+CLIENT DASHBOARD
+================================= */
+
+.client-dashboard {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* ==============================
+SIDEBAR
+================================= */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #171c20;
+    border-right: 1px solid #FFA500;
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+/* ==============================
+SIDEBAR HEADER
+================================= */
+
+.sidebar-header {
+    padding: 28px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    text-align: center;
+    color: #FFA500;
+    font-size: 23px;
+}
+
+
+/* ==============================
+SIDEBAR MENU
+================================= */
+
+.sidebar-menu {
+    flex: 1;
+    padding: 25px 15px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 8px;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 14px 15px;
+    border-radius: 9px;
+    color: #d8dde0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+    background: rgba(255, 165, 0, 0.12);
+    color: #FFA500;
+    font-weight: 800;
+    transform: translateX(3px);
+}
+
+
+/* ==============================
+SIDEBAR FOOTER
+================================= */
+
+.sidebar-footer {
+    padding: 20px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.logout-link {
+    display: block;
+    padding: 13px 15px;
+    border-radius: 9px;
+    color: #d8dde0;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.logout-link:hover {
+    color: #FFA500;
+    background: rgba(255, 165, 0, 0.12);
+    font-weight: 800;
+}
+
+
+/* ==============================
+MAIN CONTENT
+================================= */
+
+.main-content {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    padding: 30px;
+}
+
+
+/* ==============================
+DASHBOARD HEADER
+================================= */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.theme-toggle {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #FFA500;
+    border-radius: 50%;
+    background: #171c20;
+    color: #ffffff;
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: #FFA500;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+}
+
+
+/* ==============================
+OVERVIEW SECTION
+================================= */
+
+.overview-section {
+    margin-bottom: 35px;
+}
+
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.overview-card {
+    min-height: 125px;
+    padding: 22px;
+    background: #171c20;
+    border: 1px solid rgba(255, 165, 0, 0.45);
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.overview-card:hover {
+    border-color: #FFA500;
+    box-shadow: 0 0 18px rgba(255, 165, 0, 0.35);
+    transform: translateY(-3px);
+}
+
+.card-title {
+    color: #c9d0d5;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card-value {
+    margin-top: 20px;
+    color: #FFA500;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+SECTION TITLE
+================================= */
+
+.section-title {
+    margin-bottom: 18px;
+    /* color: #FFA500; */
+     color: #ffffff;
+    font-size: 22px;
+}
+
+
+/* ==============================
+COMMON SECTIONS
+================================= */
+
+.my-profile-section,
+.my-membership-section,
+.my-training-section,
+.attendance-section,
+.gym-facilities-section,
+.notification-section {
+    margin-bottom: 35px;
+}
+
+
+/* ==============================
+MY PROFILE
+================================= */
+
+.profile-card {
+    padding: 25px;
+    background: #171c20;
+    border: 1px solid rgba(255, 165, 0, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.profile-card:hover {
+    border-color: rgba(255, 165, 0, 0.7);
+}
+
+.profile-card p,
+.membership-card p,
+.training-card p,
+.attendance-card p {
+    margin-bottom: 10px;
+    color: #c9d0d5;
+    font-size: 14px;
+}
+
+.profile-card p:last-child,
+.membership-card p:last-child,
+.training-card p:last-child,
+.attendance-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==============================
+MY MEMBERSHIP
+================================= */
+
+.membership-card {
+    padding: 25px;
+    background: #171c20;
+    border: 1px solid rgba(255, 165, 0, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.membership-card:hover {
+    border-color: rgba(255, 165, 0, 0.7);
+}
+
+
+/* ==============================
+MY TRAINING
+================================= */
+
+.training-card {
+    padding: 25px;
+    background: #171c20;
+    border: 1px solid rgba(255, 165, 0, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.training-card:hover {
+    border-color: rgba(255, 165, 0, 0.7);
+}
+
+
+/* ==============================
+ATTENDANCE
+================================= */
+
+.attendance-list {
+    display: grid;
+    gap: 18px;
+}
+
+.attendance-card {
+    padding: 25px;
+    background: #171c20;
+    border: 1px solid rgba(255, 165, 0, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    transition: 0.3s ease;
+}
+
+.attendance-card:hover {
+    border-color: rgba(255, 165, 0, 0.7);
+}
+
+.attendance-card p {
+    margin-bottom: 0;
+}
+
+
+/* ==============================
+GYM FACILITIES
+================================= */
+
+.facilities-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.facility-item {
+    padding: 20px;
+    background: #171c20;
+    border: 1px solid rgba(255, 165, 0, 0.35);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.facility-item p {
+    color: #c9d0d5;
+    font-size: 14px;
+}
+
+.facility-item:hover {
+    border-color: #FFA500;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.25);
+}
+
+
+/* ==============================
+NOTIFICATIONS
+================================= */
+
+.notification-list {
+    display: grid;
+    gap: 12px;
+}
+
+.notification-item {
+    padding: 18px 20px;
+    background: #171c20;
+    border: 1px solid rgba(255, 165, 0, 0.30);
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.notification-item:hover {
+    border-color: #FFA500;
+    transform: translateX(3px);
+}
+
+.notification-item p {
+    color: #c9d0d5;
+    font-size: 14px;
+}
+
+
+
+
+body {
+    animation: dashboardOpen 0.6s ease-in;
+}
+
+@keyframes dashboardOpen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+} 
+
+
+
+
+/* ==============================
+TABLET
+================================= */
+
+@media screen and (max-width: 1100px) {
+
+    .overview-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facilities-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .attendance-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==============================
+SMALL TABLET
+================================= */
+
+@media screen and (max-width: 800px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        width: calc(100% - 210px);
+        margin-left: 210px;
+        padding: 20px;
+    }
+
+    .overview-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facilities-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .attendance-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==============================
+MOBILE
+================================= */
+
+@media screen and (max-width: 600px) {
+
+    .client-dashboard {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .sidebar-menu {
+        padding: 15px;
+    }
+
+    .sidebar-nav ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .sidebar-nav li {
+        margin-bottom: 0;
+    }
+
+    .sidebar-nav a {
+        text-align: center;
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .overview-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .facilities-list {
+        grid-template-columns: 1fr;
+    }
+
+    .attendance-card {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-title {
+        font-size: 27px;
+    }
+
+}

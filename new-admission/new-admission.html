@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Admission | Gym Management System</title>
+    <link rel="stylesheet" href="new-admission.css">
+</head>
+<body>
+    <div class="admission-container">
+        <div class="admission-box">
+            <h1 class="page-title">New Client Admission</h1>
+            <form class="admission-form">
+
+
+                <div class="personal-section">
+                    <h2 class="section-title">Personal Information</h2>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name"
+                    placeholder="Enter your Name">
+                    <small id="nameError"></small>
+                    <br>
+                
+
+                
+                    <label for="fatherName">Father Name</label>
+                    <input type="text" id="fatherName" name="fatherNam"
+                    placeholder="Enter your Father Name">
+                    <small id="fatherNameError"></small>
+                    <br>
+                
+
+                
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth"><br>
+                    <small id="dateOfBirthError"></small>
+                    <br>
+                
+            
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                        <small id="genderError"></small>
+                        <br>
+                        <label for="cnic">CNIC</label>
+                        <input type="number" id="cnic" name="cnic"
+                        placeholder="Enter CNIC">
+                        <small id="cnicError"></small>
+                </div> 
+
+
+                <div class="contact-section">
+                    <h2 class="section-title">Contact Information</h2>
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber"
+                    placeholder="Enter Phone Number">
+                    <small id="phoneNumberError"></small>
+                    <br> 
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email"
+                    placeholder="Enter your Email">
+                    <small id="emailError"></small>
+                    <br> 
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address"
+                    placeholder="Enter your Address">
+                    <small id="addressError"></small>
+                </div>
+
+
+                
+                <div class="amergency-contact-session">
+                    <h2 class="section-title">Amergency Contact Information</h2>
+                    <label for="amergencyContactName">Amergency Contact Name</label>
+                    <input type="text" id="amergencyContactName" name="amergencyContactName"
+                    placeholder="Enter Amergency Contact Name">
+                   <small id="amergencyContactNameError"></small><br>
+
+                   
+                    <label for="amergencyContactNumber">Amergency Contact Number</label>
+                    <input type="tel" id="amergencyContactNumber" name="amergencyContactNumber"
+                    placeholder="Enter Amergency Contact Number">
+                    <small id="amergencyContactNumberError"></small>
+                
+                </div>
+
+
+
+                <div class="health-information-section">
+                    <h2 class="section-title">Health Information</h2>
+                    <label for="bloodGroup">Blood Group</label>
+                    <select name="bloodGroup" id="bloodGroup">
+                    <option value="">Select Blood Group</option>
+                      <option value="A+">A+</option>
+                      <option value="A-">A-</option>
+                      <option value="B+">B+</option>
+                      <option value="B-">B-</option>
+                      <option value="AB+">AB+</option>
+                      <option value="AB-">AB-</option>
+                      <option value="O+">O+</option>
+                      <option value="O-">O-</option>
+                      <option value="Unknown">Unknown</option>
+                    </select>
+                    <small id="bloodGroupError"></small><br>
+
+                    <label for="medicalCondition">Medical Condition</label>
+                    <input type="text" id="medicalCondition" name="medicalCondition"
+                    placeholder="Enter your Medical Condition">
+                    <small id="medicalConditionError"></small>
+                </div>
+
+
+                <div class="training-section">
+                    <h2 class="section-title">Training Packages</h2>
+                </div>
+                <div class="training-card">
+                    <h3>Personal Training</h3>
+
+                    <select name="personalDuration" id="personalDuration">
+                        <option value="">Select Duration & Fee</option>
+                        <option value="6 Months - Rs: 45,000">6 Months - Rs: 45,000</option>
+                        <option value="12 Months - Rs: 80,000">12 Months - Rs: 80,000</option>
+                    </select>
+                    <small id="personalDurationError"></small><br>
+
+                </div>
+
+                <div class="training-card">
+                    <h3>Group Training</h3>
+                     <select name="groupDuration" id="groupDuration">
+                        <option value="">Select Duration & Fee</option>
+                        <option value="6 Months - Rs: 25,000">6 Months - Rs: 25,000</option>
+                        <option value="12 Months - Rs: 45,000">12 Months - Rs: 45,000</option>
+                    </select>
+                    <small id="groupDurationError"></small>
+                </div>
+
+
+                <div class="form-actions">
+                    <button type="submit">Apply for Admission</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="new-admission.js"></script>
+</body>
+</html>

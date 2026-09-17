@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Gym Management System</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <!-- <img src="../images/admin.jpg" alt="Admin"> -->
+             <img src="../images/1.jpg" alt="Gym">
+            
+            <div class="role-buttons">
+              <button type="button" class="role-btn">Admin</button>
+              <button type="button" class="role-btn">Trainer</button>
+              <button type="button" class="role-btn">Client</button>
+            </div>
+            
+             <h1 class="login-title">Login</h1> 
+            <h2 class="login-subtitle">Welcome Back!</h2>
+            <form class="login-form">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" disabled>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" disabled>
+                <button type="button" id="toggle-password">🙈</button>
+
+                
+                <input type="checkbox" id="remember-me" name="remember-me">
+                <label for="remember-me">Remember Me</label>
+
+
+
+                <button type="submit" id="login-button" Disabled>Login</button>
+                 <a href="#" id="forgot-password">Forgot Password?</a>
+
+                <p id="login-message"></p>
+            </form>
+        </div>
+    </div>
+ <script src="login.js"></script>
+</body>
+</html>

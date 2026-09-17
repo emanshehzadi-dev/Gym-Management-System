@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Dashboard | Gym Management System</title>
+    <link rel="stylesheet" href="trainer-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="trainer-dashboard">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">Gym Management</h2>
+            </div>
+            <div class="sidebar-menu">
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#dashboard"><i class="fa-solid fa-chart-bar fa-beat"></i>  Dashboard</a></li>
+                        <li><a href="#my-clients"><i class="fa-solid fa-user-group fa-bounce"></i> My Clients</a></li>
+                        <li><a href="#attendance"><i class="fa-solid fa-user-check fa-beat"></i> Attendance</a></li>
+                        <li><a href="#training-schedule"><i class="fa-solid fa-calendar-days fa-flip"></i> Training Schedule</a></li>
+                        <li><a href="#my-profile"><i class="fa-solid fa-id-card fa-beat-fade"></i> My Profile</a></li>
+                        <li><a href="#notifications"><i class="fa-solid fa-bell fa-shake"></i> Notifications</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-link"><i class="fa-solid fa-door-closed fa-beat"></i> Logout</a>
+            </div>
+        </div>
+
+
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h2 class="dashboard-title">Dashboard</h2>
+                <button class="theme-toggle">🌙</button>
+            </div>
+
+
+            <div class="overview-section" id="dashboard">
+                <div class="overview-cards">
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Total Assigned Clients</h3>
+                        <div class="total-value"></div>
+                    </div>
+
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Today's Training Sessions</h3>
+                        <div class="total-value"></div>
+                    </div>
+
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Upcoming Sessions</h3>
+                        <div class="total-value"></div>
+                    </div>
+
+
+                    <div class="overview-card">
+                        <h3 class="card-title">Available Time Slots</h3>
+                        <div class="total-value"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="my-clients-section" id="my-clients">
+                <h2 class="section-title">My Clients</h2>
+                <div class="clients-list">
+                    <div class="client-card">
+                        <p>Client ID</p>
+                        <p>Client Name</p>
+                        <p>Selected Package</p>
+                        <p>Duration & Fee</p>
+                        <p>Training Time</p>
+                        <p>Membership Status</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="attendance-section" id="attendance">
+                <h2 class="section-title">Attendance</h2>
+                <div class="attendance-list">
+                    <div class="attendance-card">
+                        <p>Client ID</p>
+                        <p>Client Name</p>
+                        <p>Date</p>
+                        <p>Training Time</p>
+                        <p>Attendance Status</p>
+                        <div class="attendance-actions">
+                            <button>Present</button>
+                            <button>Absent</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="training-schedule-section" id="training-schedule">
+                <h2 class="section-title">Training Schedule</h2>
+                <div class="schedule-list">
+                    <div class="schedule-card">
+                        <p>Client ID</p>
+                        <p>Client Name</p>
+                        <p>Training Time</p>
+                        <p>Selected Package</p>
+                        <p>Session Status</p>
+                    </div>
+                </div>
+            </div>
+
+         
+            <div class="my-profile-section" id="my-profile">
+                <h2 class="section-title">My Profile</h2>
+                <div class="profile-card">
+                    <p>Trainer Name</p>
+                    <p>Phone Number</p>
+                    <p>Email</p>
+                    <p>Experience</p>
+                    <p>Specialization</p>
+                    <p>Available Timings</p>
+                </div>
+            </div>
+
+
+            <div class="notification-section" id="notifications">
+                <h2 class="section-title">Notifications</h2>
+                <div class="notification-list">
+
+                    <div class="notification-item">
+                        <p>New Client Assigned</p>
+                    </div>
+                     
+
+                     <div class="notification-item">
+                        <p>Training Schedule Updated</p>
+                    </div>
+
+
+                     <div class="notification-item">
+                        <p>Session Reminder</p>
+                    </div>
+
+
+                     <div class="notification-item">
+                        <p>Client Training Time Changed</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+     </div>
+ </body>
+</html>
