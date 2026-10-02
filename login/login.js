@@ -196,32 +196,25 @@ console.log(loginForm);
 
 
 
-else if(selectedRole !== "admin"){
+     else if(selectedRole === "trainer"){
 
    const user = users.find(function(user){
       return user.email === emailInput.value &&
       user.password === passwordInput.value &&
-      user.role === selectedRole;
+      user.role === "trainer";
    });
 
 
    if(user){
       localStorage.setItem("userLoggedIn", "true");
-      localStorage.setItem("selectedRole", selectedRole);
+      localStorage.setItem("selectedRole", "trainer");
 
-      console.log("Login Successful!");
+      console.log("Trainer Login Successful!");
       loginMessage.textContent = "Login Successful!";
+
       setTimeout(function(){
-          loginMessage.textContent = "";
-      
-         if(selectedRole === "trainer"){
+         loginMessage.textContent = "";
          window.location.replace("../trainer-dashboard/trainer-dashboard.html");
-         }
-
-         else if(selectedRole === "client"){
-            window.location.replace("../client-dashboard/client-dashboard.html")
-         }
-
       }, 2000);
    }
 
@@ -229,6 +222,46 @@ else if(selectedRole !== "admin"){
    else{
       console.log("Invalid email or password!");
       loginMessage.textContent = "Invalid email or password!";
+
+      setTimeout(function(){
+         loginMessage.textContent = "";
+      }, 2000);
+   }
+
+}
+
+
+else if(selectedRole === "client"){
+
+   const clients =
+      JSON.parse(localStorage.getItem("clients")) || [];
+
+   const client = clients.find(function(client){
+      return client.email === emailInput.value &&
+      client.password === passwordInput.value &&
+      client.status === "Approved";
+   });
+
+
+   if(client){
+      localStorage.setItem("userLoggedIn", "true");
+      localStorage.setItem("selectedRole", "client");
+      localStorage.setItem("loggedInClientEmail", client.email);
+
+      console.log("Client Login Successful!");
+      loginMessage.textContent = "Login Successful!";
+
+      setTimeout(function(){
+         loginMessage.textContent = "";
+         window.location.replace("../client-dashboard/client-dashboard.html");
+      }, 2000);
+   }
+
+
+   else{
+      console.log("Invalid email or password!");
+      loginMessage.textContent = "Invalid email or password!";
+
       setTimeout(function(){
          loginMessage.textContent = "";
       }, 2000);

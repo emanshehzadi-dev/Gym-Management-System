@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Gym Management System</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-box">
+            <form class="payment-form">
+            <h1 class="page-title">Payment Information</h1>
+            <div class="package-summary">
+                <h2>Selected Package</h2>
+                <p>Package: <span id="selectedPackage"></span></p>
+                <p>Duration: <span id="selectedDuration"></span></p>
+                <p>Fee: <span id="selectedFee"></span></p>
+            </div>
+            <div class="payment-method-section">
+                <h2>Payment Method</h2>
+
+                <label for="paymentMethod">Select Payment Method</label> 
+
+               <select id="paymentMethod" name="paymentMethod">
+                     <option value="">Select Payment Method</option>
+                     <option value="cash">Cash</option>
+                     <option value="bankTransfer">Bank Transfer</option>
+                     <option value="onlinePayment">Online Payment</option>
+               </select>
+
+              <small id="paymentMethodError"></small>
+            </div>
+
+            <div class="transfer-details" id="transferDetails">
+                     <h2>Payment Details</h2>
+                     <p id="bankDetails"></p>
+                       <p id="bankAccountTitle"></p>
+                       <p id="bankAccountNumber"></p>
+                     <p id="jazzCashDetails"></p>
+                     <p id="easyPaisaDetails"></p>
+            </div>
+
+            <div class="reference-section">
+                 <label for="referenceNumber">Reference / Transaction Number</label>
+
+                    <input type="text"
+                    id="referenceNumber"
+                    name="referenceNumber"
+                    placeholder="Enter Reference / Transaction Number">
+
+               <small id="referenceNumberError"></small>
+            </div>
+
+            <div class="payment-date-time">
+                   <p>Payment Date: <span id="paymentDate"></span></p>
+                   <p>Payment Time: <span id="paymentTime"></span></p>
+            </div>
+
+               <div class="payment-actions">
+                   <button type="submit" id="completePayment">
+                         Complete Payment & Submit Admission
+                   </button>
+                   
+                   <p id="paymentSuccessMessage"></p>
+
+               </div>
+            </form>
+        </div>
+    </div>
+    <script src="payment.js"></script>
+</body>
+</html>

@@ -37,7 +37,7 @@
 
         <div class="main-content">
             <div class="dashboard-header">
-                <h1 class="dashboard-title">Dashboard</h1>
+                <h1 class="dashboard-title">Admin Dashboard</h1>
                 <button class="theme-toggle">🌙</button>
             </div>
 
@@ -46,18 +46,18 @@
 
                     <div class="overview-card">
                         <h3 class="card-title">Total Clients</h3>
-                        <div class="total-value">0</div>
+                        <div class="total-value" id="totalClients">0</div>
                     </div>
 
 
                     <div class="overview-card">
                         <h3 class="card-title">Active Clients</h3>
-                        <div class="total-value">0</div>
+                        <div class="total-value" id="activeClients">0</div>
                     </div>
 
                    <div class="overview-card">
                         <h3 class="card-title">Pending Requests</h3>
-                        <div class="total-value">0</div>
+                        <div class="total-value" id="pendingRequests">0</div>
                     </div> 
                      
 
@@ -66,68 +66,77 @@
                         <div class="total-value">0</div>
                     </div>
 
-
+                    
                     <div class="overview-card">
-                        <h3 class="card-title">Expiring Memberships</h3>
-                        <div class="total-value">0</div>
+                    <h3 class="card-title">Expiring Memberships</h3>
+                    <div class="total-value" id="expiringMemberships">0</div>
                     </div>
 
+                    <div class="overview-card">
+                    <h3 class="card-title">Expired Memberships</h3>
+                    <div class="total-value" id="expiredMembershipsCount">0</div>
+                    </div>
 
                 </div>
             </div>
+            
             <div class="recent-notifications">
                 <h2 class="section-title">Recent Notifications</h2>
-                <div class="notification-item">New Client Admission Request</div>
+                 <div id="recentNotificationsList"></div>
+                 <div class="notification-item">New Client Admission Request</div>
                 <div class="notification-item">Membership Expiring Soon</div>
                 <div class="notification-item">New Trainer Assignment</div>
-                <div class="notification-item">Training Schedule Updated</div>
+                <div class="notification-item">Training Schedule Updated</div> 
             </div>
+
+                  <!-- key  -->
+            <!-- GYM_ADMIN_RECENT_NOTIFICATIONS_V1 -->
 
 
             <div class="admission-requests" id="admission-requests">
                 <h2 class="section-title">Admission Requests</h2>
-                <div class="admission-list">
-                    <div class="admission-card">
-                        <div class="client-info">
-                            <p>Client Name</p>
-                            <p>PhoneNo</p>
-                            <p>Email</p>
-                            <p> Selected Package</p>
-                            <p>Duration & Fee</p> 
-                        </div>
+                <div class="admission-list" id="admissionList"></div>
+                    <!-- <div class="admission-card"> -->
+                        <!-- <div class="client-info"> -->
+                            <!-- <p>Client Name</p> -->
+                            <!-- <p>PhoneNo</p> -->
+                            <!-- <p>Email</p> -->
+                            <!-- <p> Selected Package</p> -->
+                            <!-- <p>Duration & Fee</p>  -->
+                        <!-- </div> -->
 
-                        <div class="request-actions">
-                             <button class="approve-btn">Approve</button>
-                             <button class="reject-btn">Reject</button>
-                        </div>
-                    </div>
-                </div>
+                        <!-- <div class="request-actions"> -->
+                             <!-- <button class="approve-btn">Approve</button> -->
+                             <!-- <button class="reject-btn">Reject</button> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
             </div>
 
 
             <div class="clients-section" id="clients">
                 <h2 class="section-title">Clients</h2>
-                <div class="clients-list">
-                    <div class="client-card">
+                <div class="clients-list" id="clientsList"></div>
+                <!-- <div class="client-details" id="clientDetails"></div> -->
+                    <!-- <div class="client-card"> -->
 
-                        <div class="client-info">
-                            <p>Client ID</p>
-                            <p>Client Name</p>
-                            <p>Phone Number</p>
-                            <p>Email</p>
-                            <p>Selected Package</p>
-                            <p>Duration & Fee</p>
-                            <p>Trainer</p>
-                            <p>Training Time</p>
-                            <p>Entry Date</p>
-                            <p>Expiry Date</p>
-                            <p>Membership Status</p>
-                        </div>
-                        <div class="client-actions">
-                            <button class="manage-client-btn">Manage Client</button>
-                        </div>
-                    </div>
-                </div>
+                        <!-- <div class="client-info"> -->
+                            <!-- <p>Client ID</p> -->
+                            <!-- <p>Client Name</p> -->
+                            <!-- <p>Phone Number</p> -->
+                            <!-- <p>Email</p> -->
+                            <!-- <p>Selected Package</p> -->
+                            <!-- <p>Duration & Fee</p> -->
+                            <!-- <p>Trainer</p> -->
+                            <!-- <p>Training Time</p> -->
+                            <!-- <p>Entry Date</p> -->
+                            <!-- <p>Expiry Date</p> -->
+                            <!-- <p>Membership Status</p> -->
+                        <!-- </div> -->
+                        <!-- <div class="client-actions"> -->
+                            <!-- <button class="manage-client-btn">Manage Client</button> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                
             </div>
 
 
@@ -154,17 +163,36 @@
             <div class="memberships-section" id="memberships">
                 <h1 class="memberships">Memberships</h1>
                 <h2 class="section-title">Active Memberships</h2>
-                <div class="membership-list">
-                    <div class="membership-client">
-                        <p>Client ID</p>
-                        <p>Client Name</p>
-                        <p>Membership Status</p>
-                    </div>
+                <div class="membership-list" id="activeMembershipList">
+                    <!-- <div class="membership-client"> -->
+                        <!-- <p>Client ID</p> -->
+                        <!-- <p>Client Name</p> -->
+                        <!-- <p>Membership Status</p> -->
+                    <!-- </div> -->
                 </div>
 
                 <div class="expiring-soon">
                     <h2 class="section-title">Expiring Soon</h2>
-                    <div class="membership-list">
+                    <div class="membership-list" id="expiringSoonList">
+                        <p id="noExpiringSoon">No memberships are expiring soon.</p>
+                        <template id="expiringSoonTemplate">
+                            <div class="membership-client">
+                                <p>Client ID</p>
+                                <p>Client Name</p>
+                                <p>Entry Date</p>
+                                <p>Expiry Date</p>
+                                <p>Membership Status</p>
+                                <p>Warning</p>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="expired-memberships">
+                    <h2 class="section-title">Expired Memberships</h2>
+                    <div class="membership-list" id="expiredMemberships">
+                        <p id="noExpiredMemberships">No expired memberships.</p>
+                        <template id="expiredTemplate">
                         <div class="membership-client">
                             <p>Client ID</p>
                             <p>Client Name</p>
@@ -172,18 +200,7 @@
                             <p>Expiry Date</p>
                             <p>Membership Status</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="expired-memberships">
-                    <h2 class="section-title">Expired Memberships</h2>
-                    <div class="membership-list">
-                        <div class="membership-client">
-                            <p>Client ID</p>
-                            <p>Client Name</p>
-                            <p>Expiry Date</p>
-                            <p>Membership Status</p>
-                        </div>
+                        </template>
                     </div>
                 </div>
             </div>

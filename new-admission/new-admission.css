@@ -168,8 +168,8 @@ body {
 
 
 .admission-form small{
-    color: #f73838; 
-     /* color: #ff6b6b; */
+    /* color: #f73838;  */
+    color: #ff6b6b; 
     font-size: 13px;
     display: block;
      /* margin-top: 5px;  */

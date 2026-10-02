@@ -19,7 +19,16 @@ const medicalConditionInput = document.getElementById("medicalCondition");
 const personalDurationInput = document.getElementById("personalDuration");
 const groupDurationInput = document.getElementById("groupDuration");
 
-// ========== Refrence validation connect ==============
+// ================= Array declaire ================
+
+let clients = JSON.parse(localStorage.getItem("clients")) || [];
+
+// ================ Session Storage ================
+
+const pendingClient = JSON.parse(sessionStorage.getItem("pendingClient"));
+
+
+// ========== Refrence connect for error msg ==============
 
 const nameError = document.getElementById("nameError");
 const fatherNameError = document.getElementById("fatherNameError");
@@ -43,84 +52,201 @@ const admissionForm = document.querySelector(".admission-form");
 // ========== form submit krny py action lyna k browser reload na ho ============
 
 admissionForm.addEventListener("submit", function(event){
+    console.log("Form submitted");
     event.preventDefault();    
+    let firstInvalidField = null;
 
     //========= Validation ===========
 
     if(nameInput.value === ""){
         nameError.textContent = "Please enter your name!";
+           if(firstInvalidField === null){
+            firstInvalidField = nameInput;
+        }
         // return;
     }
 
 
     if(fatherNameInput.value === ""){
          fatherNameError.textContent = "Please enter your father name!";
+         if(firstInvalidField === null){
+            firstInvalidField = fatherNameInput;
+         }
         //  return;
     }
 
     if(dateOfBirthInput.value === ""){
-        dateOfBirthError.textContent = "Please enter your date of birth!";
+        dateOfBirthError.textContent = "Please select your date of birth!";
+        if(firstInvalidField === null){
+            firstInvalidField = dateOfBirthInput;
+        }
         // return;
     }
 
     if(genderInput.value === ""){
         genderError.textContent = "Please select your gender!";
+        if(firstInvalidField === null){
+            firstInvalidField = genderInput;
+        }
         // return;
     }
 
     if(cnicInput.value === ""){
         cnicError.textContent = "Please enter your CNIC!";
+        if(firstInvalidField === null){
+            firstInvalidField = cnicInput;
+        }
         // return;
     }
 
     if(phoneNumberInput.value === ""){
         phoneNumberError.textContent = "Please enter your phone number!";
+        if(firstInvalidField === null){
+            firstInvalidField = phoneNumberInput;
+        }
         // return;
     }
 
     if(emailInput.value === ""){
         emailError.textContent = "Please enter your email!";
+        if(firstInvalidField === null){
+            firstInvalidField = emailInput;
+        }
         // return;
     }
 
     if(addressInput.value === ""){
         addressError.textContent = "Please enter your address!";
+        if(firstInvalidField === null){
+            firstInvalidField =addressInput;
+        }
         // return;
     }
 
     if(amergencyContactNameInput.value === ""){
         amergencyContactNameError.textContent = "Please enter your emergency contact name!";
+        if(firstInvalidField === null){
+            firstInvalidField = amergencyContactNameInput;
+        }
         // return;
     }
 
     if(amergencyContactNumberInput.value === ""){
         amergencyContactNumberError.textContent = "Please enter your emergency contact number!";
+        if(firstInvalidField === null){
+            firstInvalidField = amergencyContactNumberInput;
+        }
         // return;
     }
 
     if(bloodGroupInput.value === ""){
         bloodGroupError.textContent = "Please select your blood group!";
+        if(firstInvalidField === null){
+            firstInvalidField = bloodGroupInput;
+        }
         // return;
     }
 
     if(medicalConditionInput.value === ""){
         medicalConditionError.textContent = "Please enter your medical condition!";
+        if(firstInvalidField === null){
+            firstInvalidField = medicalConditionInput;
+        }
         // return;
     }
 
     if(personalDurationInput.value === "" && groupDurationInput.value === ""){
         personalDurationError.textContent = "Please select a training package!";
         groupDurationError.textContent = "Please select a training package!";
+        if(firstInvalidField === null){
+            firstInvalidField = personalDurationInput;
+        }
         // return;
     }
 
     if(personalDurationInput.value !== "" && groupDurationInput.value !== ""){
          personalDurationError.textContent = "Please select only one training package!";
          groupDurationError.textContent = "Please select only one training package!";
+         if(firstInvalidField === null){
+            firstInvalidField = personalDurationInput;
+         }
         //  return;
+    }
+    
+
+    if(firstInvalidField !== null){
+        firstInvalidField.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        firstInvalidField.focus();
+        return;
+    }
+
+
+    // ============= dublicate email check ================
+
+    const emailExists = clients.some(function(client){
+        return client.email === emailInput.value;
+    });
+    if(emailExists){
+        emailError.textContent = "This email is already rejistered!";
+        emailInput.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        emailInput.focus();
+        return;
     }
 
     
+    // ============== Dublicate CNIC check ==============
+
+    const cnicExists = clients.some(function(client){
+        return client.cnic === cnicInput.value;
+    });
+    if(cnicExists){
+        cnicError.textContent = " This CNIC is already rejistered!";
+        cnicInput.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        cnicInput.focus();
+        return;
+    }
+
+    
+    // ================ Object create ===============
+
+     const client = {
+    name: nameInput.value,
+    fatherName: fatherNameInput.value,
+    dateOfBirth: dateOfBirthInput.value,
+    gender: genderInput.value,
+    cnic: cnicInput.value,
+    phoneNumber: phoneNumberInput.value,
+    email: emailInput.value,
+    address: addressInput.value,
+    amergencyContactName: amergencyContactNameInput.value,
+    amergencyContactNumber: amergencyContactNumberInput.value,
+    bloodGroup: bloodGroupInput.value,
+    medicalCondition: medicalConditionInput.value,
+    personalDuration: personalDurationInput.value,
+    groupDuration: groupDurationInput.value,
+    status: "Pending"
+ };
+
+    // clients.push(client);
+    // localStorage.setItem("clients", JSON.stringify(clients));
+
+    // localStorage.setItem("pendingClientEmail", client.email);
+
+
+    // ========== Session storage ma save kiya h ===============
+
+    sessionStorage.setItem("pendingClient", JSON.stringify(client));
+    window.location.href= "../payment/payment.html";
+
 });
 
 
@@ -209,4 +335,22 @@ groupDurationInput.addEventListener("input", function(){
     if(groupDurationInput.value !== ""){
         groupDurationError.textContent = "";
     }
+
 });
+    // ===================================================
+
+
+    personalDurationInput.addEventListener("change", function(){
+        if(personalDurationInput.value !== ""){
+            groupDurationInput.value = "";
+            groupDurationError.textContent = "";
+        }
+    });
+
+    groupDurationInput.addEventListener("change", function(){
+        if(groupDurationInput.value !== ""){
+            personalDurationInput.value = "";
+            personalDurationError.textContent = "";
+        }
+    });
+

@@ -192,7 +192,7 @@ OVERVIEW SECTION
 
 .overview-cards {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 18px;
 }
 
@@ -217,6 +217,7 @@ OVERVIEW SECTION
     color: #c9d0d5;
     font-size: 14px;
     font-weight: 500;
+    height: 34px;
 }
 
 .total-value {
@@ -295,6 +296,7 @@ ADMISSION REQUESTS
     justify-content: space-between;
     gap: 25px;
     transition: 0.3s ease;
+      
 }
 
 .admission-card:hover {
@@ -326,6 +328,8 @@ REQUEST ACTIONS
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: flex-end;
+    /* width: 100%; */
 }
 
 .approve-btn,
@@ -341,6 +345,7 @@ REQUEST ACTIONS
     transition: 0.3s ease;
 }
 
+
 .approve-btn {
     background: orange;
     color: #ffffff;
@@ -355,8 +360,14 @@ REQUEST ACTIONS
 .reject-btn:hover,
 .manage-client-btn:hover,
 .manage-trainer-btn:hover {
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
-    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 167, 3, 0.651);
+    /* transform: translateY(-2px); */
+}
+
+.approve-btn:disabled,
+.reject-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 
@@ -391,7 +402,27 @@ CLIENTS
     border-color: rgba(255, 165, 0, 0.7);
 }
 
-.client-card,
+
+.client-main {
+    flex: 1;
+}
+
+.client-view {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+}
+
+.client-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
 .trainer-card {
     display: flex;
     justify-content: space-between;
@@ -405,6 +436,43 @@ CLIENTS
     color: #ffffff;
 }
 
+
+/* ================= Client Details ================= */
+
+.client-details {
+    display: none;
+    margin-top: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.client-actions {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.client-details p {
+    margin-bottom: 12px;
+    color: #c9d0d5;
+    font-size: 14px;
+}
+
+
+.client-details h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+
+.manage-client-btn.active {
+    background: #555b60;
+}
 
 /* ==============================
 MEMBERSHIPS
@@ -427,6 +495,29 @@ MEMBERSHIPS
     display: grid;
     gap: 15px;
 }
+
+
+#noExpiringSoon {
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* 
+#noExpiringSoon {
+    color: #f59e0b;
+    font-size: 14px;
+    font-weight: 500;
+} */
+
+
+
+#noExpiredMemberships {
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 
 
 /* ==============================

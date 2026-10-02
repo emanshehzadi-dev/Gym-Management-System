@@ -32,7 +32,8 @@
         </div>
         <div class="main-content">
             <div class="dashboard-header" id="dashboard">
-                <h2 class="dashboard-title">Dashboard</h2>
+                <h2 class="dashboard-title">Client Dashboard</h2>
+                <p id="clientWelcome"></p>
                 <button class="theme-toggle">🌙</button>
             </div>
 
@@ -41,19 +42,19 @@
 
                     <div class="overview-card">
                         <h3 class="card-title">Membership Status</h3>
-                        <div class="card-value"></div>
+                        <div class="card-value" id="membershipStatusCard"></div>
                     </div>
 
 
                     <div class="overview-card">
                         <h3 class="card-title">Selected Package</h3>
-                        <div class="card-value"></div>
+                        <div class="card-value" id="selectedPackageCard"></div>
                     </div>
 
 
                     <div class="overview-card">
                         <h3 class="card-title">Training Time</h3>
-                        <div class="card-value"></div>
+                        <div class="card-value" id="trainingTimeCard"></div>
                     </div>
 
 
@@ -69,25 +70,38 @@
             <div class="my-profile-section" id="my-profile">
                 <h2 class="section-title">My Profile</h2>
                 <div class="profile-card">
-                    <p>Client ID</p>
-                    <p>Full Name</p>
-                    <p>Date of Birth</p>
-                    <p>Gender</p>
-                    <p>CNIC</p>
-                    <p>Phone Number</p>
-                    <p>Email</p>
-                    <p>Address</p>
+                   <p id="clientId">Client ID</p>
+                   <p id="clientName">Client Name</p>
+                   <p id="fatherName">Father Name</p>
+                   <p id="dateOfBirth">Date of Birth</p>
+                   <p id="gender">Gender</p>
+                   <p id="cnic">CNIC</p>
+                   <p id="bloodGroup">Blood Group</p>
+                   <p id="phoneNumber">Phone Number</p>
+                   <p id="email">Email</p>
+                   <p id="address">Address</p>
+                   <p id="amergencyContactName">Emergency Contact Name</p>
+                   <p id="amergencyContactNumber">Emergency Contact Number</p>
+                   <p id="medicalCondition">Medical Condition</p>
+                   <p id="selectedPackage">Selected Package</p>
+                   <p id="durationAndFee">Duration & Fee</p>
+                   <p id="membershipStatus">Membership Status</p>
+                   <p id="paymentMethod">Payment Method</p>
+                   <p id="referenceNumber">Reference / Transaction Number</p>
+                   <p id="paymentDate">Payment Date</p>
+                   <p id="paymentTime">Payment Time</p>
+                   <p id="paymentStatus">Payment Status</p>
                 </div>
             </div>
 
             <div class="my-membership-section" id="my-membership">
                 <h2 class="section-title">My Membership</h2>
                 <div class="membership-card">
-                    <p>Selected Package</p>
-                    <p>Duration & Fee</p>
-                    <p>Membership Status</p>
-                    <p>Entry Date</p>
-                    <p>Expiry Date</p>
+                    <p id="membershipPackage">Selected Package</p>
+                    <p id="membershipDuration">Duration & Fee</p>
+                    <p id="membershipStatusValue">Membership Status</p>
+                    <p id="membershipEntryDate">Entry Date</p>
+                    <p id="membershipExpiryDate">Expiry Date</p>
                 </div>
             </div>
 
@@ -156,7 +170,7 @@
                 <h2 class="section-title">Notifications</h2>
                 <div class="notification-list">
 
-
+<!-- 
                      <div class="notification-item">
                         <p>Admission Approved</p>
                     </div>
@@ -178,11 +192,12 @@
 
                      <div class="notification-item">
                         <p>Membership Expiring Soon</p>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
         </div>
     </div>
+    <script src="client-dashboard.js"></script>
 </body>
 </html>
