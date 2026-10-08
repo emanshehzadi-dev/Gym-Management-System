@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* font-family: "Poppins", sans-serif; */
+
+      font-family: 'Poppins', sans-serif;
+    background-color: #171c20;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* ================= Header ================= */
+
+.header {
+    width: 100%;
+    height: 90px;
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #171c20;
+
+    border-bottom: 1px solid #292d32;
+}
+
+
+/* ================= Logo Area ================= */
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid orange;
+    border-radius: 50%;
+
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.logo-area h1 {
+    color: #ffffff;
+    font-size: 32px;
+}
+
+
+/* ================= Home Button ================= */
+
+.back-btn {
+    padding: 10px 22px;
+
+    color: #060708;
+    background-color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 25px;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #ffffff;
+    background-color: orange;
+}
+
+
+/* ================= Get Started Section ================= */
+
+.get-started {
+    height: calc(100vh - 145px);
+    padding: 40px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background-image:
+        linear-gradient(
+            rgba(6, 7, 8, 0.60),
+            rgba(6, 7, 8, 0.50)
+        ),
+        url("../images/get-started.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.get-started-content {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.get-started-content h2 {
+    margin-bottom: 10px;
+
+    color: #ffffff;
+    font-size: 55px;
+}
+
+.get-started-content h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 3px;
+
+    margin: 10px auto 15px;
+
+    background-color: orange;
+}
+
+.get-started-content > p {
+    margin-bottom: 25px;
+
+    color: #eeeeee;
+    font-size: 22px;
+}
+
+
+/* ================= Options ================= */
+
+.options-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.option-button {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #ffffff;
+    background-color: rgba(23, 28, 32, 0.88);
+
+    border: 1px solid #292d32;
+    border-left: 3px solid orange;
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.option-button:hover {
+    color: #ffffff;
+    background-color: orange;
+    border-color: orange;
+}
+
+.arrow {
+    color: orange;
+    font-size: 30px;
+
+    transition: 0.3s ease;
+}
+
+.option-button:hover .arrow {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+
+/* ================= Footer ================= */
+
+footer {
+    height: 55px;
+    padding: 18px;
+
+    background-color: #060708;
+
+    text-align: center;
+
+    border-top: 1px solid #292d32;
+}
+
+footer p {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+
+/* ================= Responsive ================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        height: auto;
+        padding: 15px 5%;
+    }
+
+    .logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .logo-area h1 {
+        font-size: 20px;
+    }
+
+    .back-btn {
+        padding: 9px 15px;
+        font-size: 15px;
+    }
+
+    .get-started {
+        height: auto;
+        min-height: calc(100vh - 130px);
+        padding: 55px 5%;
+    }
+
+    .get-started-content h2 {
+        font-size: 32px;
+    }
+
+    .get-started-content > p {
+        margin-bottom: 25px;
+        font-size: 16px;
+    }
+
+    .options-container {
+        max-width: 450px;
+        gap: 12px;
+    }
+
+    .option-button {
+        width: 100%;
+        min-height: 60px;
+        font-size: 17px;
+    }
+
+    .arrow {
+        font-size: 25px;
+    }
+
+    footer {
+        height: auto;
+        padding: 18px;
+    }
+}

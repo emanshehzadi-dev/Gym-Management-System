@@ -1,12 +1,10 @@
+/* SMOOTH SCROLL */
 html {
     scroll-behavior: smooth;
 }
 
 
-/* ==============================
-RESET
-================================= */
-
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -14,34 +12,24 @@ RESET
 }
 
 
-/* ==============================
-BODY
-================================= */
-
+/* BODY */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    /* background: #343b40; */
-     /* background:  #101519;    */
-       background:  #14191d;  
+    /* font-family: Arial, Helvetica, sans-serif; */
 
+     font-family: 'Poppins', sans-serif;
+    background: #14191d;
     color: #ffffff;
 }
 
 
-/* ==============================
-TRAINER DASHBOARD
-================================= */
-
+/* TRAINER DASHBOARD */
 .trainer-dashboard {
     min-height: 100vh;
     display: flex;
 }
 
 
-/* ==============================
-SIDEBAR
-================================= */
-
+/* SIDEBAR */
 .sidebar {
     width: 250px;
     min-height: 100vh;
@@ -57,10 +45,7 @@ SIDEBAR
 }
 
 
-/* ==============================
-SIDEBAR HEADER
-================================= */
-
+/* SIDEBAR HEADER */
 .sidebar-header {
     padding: 28px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -73,10 +58,7 @@ SIDEBAR HEADER
 }
 
 
-/* ==============================
-SIDEBAR MENU
-================================= */
-
+/* SIDEBAR MENU */
 .sidebar-menu {
     flex: 1;
     padding: 25px 15px;
@@ -102,16 +84,13 @@ SIDEBAR MENU
 
 .sidebar-nav a:hover {
     background: rgba(255, 165, 0, 0.12);
-     color: #FFA500; 
-     font-weight: 700;
+    color: #FFA500;
+    font-weight: 700;
     transform: translateX(3px);
 }
 
 
-/* ==============================
-SIDEBAR FOOTER
-================================= */
-
+/* SIDEBAR FOOTER */
 .sidebar-footer {
     padding: 20px 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -134,10 +113,7 @@ SIDEBAR FOOTER
 }
 
 
-/* ==============================
-MAIN CONTENT
-================================= */
-
+/* MAIN CONTENT */
 .main-content {
     width: calc(100% - 250px);
     margin-left: 250px;
@@ -145,10 +121,7 @@ MAIN CONTENT
 }
 
 
-/* ==============================
-DASHBOARD HEADER
-================================= */
-
+/* DASHBOARD HEADER */
 .dashboard-header {
     display: flex;
     justify-content: space-between;
@@ -179,10 +152,7 @@ DASHBOARD HEADER
 }
 
 
-/* ==============================
-OVERVIEW SECTION
-================================= */
-
+/* OVERVIEW */
 .overview-section {
     margin-bottom: 35px;
 }
@@ -224,22 +194,15 @@ OVERVIEW SECTION
 }
 
 
-/* ==============================
-SECTION TITLE
-================================= */
-
+/* SECTION TITLE */
 .section-title {
     margin-bottom: 18px;
-     /* color: #FFA500;  */
-     color: #ffffff; 
+    color: #ffffff;
     font-size: 22px;
 }
 
 
-/* ==============================
-MY CLIENTS
-================================= */
-
+/* SECTIONS */
 .my-clients-section,
 .attendance-section,
 .training-schedule-section,
@@ -248,122 +211,81 @@ MY CLIENTS
     margin-bottom: 35px;
 }
 
-.clients-list {
-    display: grid;
-    gap: 18px;
-}
 
-.client-card {
-    padding: 25px;
+/* ========================================= */
+/* TABLES */
+/* ========================================= */
+
+
+/* TABLE CONTAINERS */
+.clients-table-container,
+.attendance-table-container,
+.schedule-table-container {
+    width: 100%;
+    overflow-x: auto;
     background: #171c20;
     border: 1px solid rgba(255, 165, 0, 0.35);
     border-radius: 14px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    transition: 0.3s ease;
-}
-
-.client-card:hover {
-    border-color: rgba(255, 165, 0, 0.7);
-}
-
-.client-card p,
-.attendance-card p,
-.schedule-card p,
-.profile-card p {
-    margin-bottom: 10px;
-    color: #c9d0d5;
-    font-size: 14px;
-}
-
-.client-card p:last-child,
-.attendance-card p:last-child,
-.schedule-card p:last-child,
-.profile-card p:last-child {
-    margin-bottom: 0;
 }
 
 
-/* ==============================
-ATTENDANCE
-================================= */
-
-.attendance-list {
-    display: grid;
-    gap: 18px;
+/* TABLE */
+.clients-table,
+.attendance-table,
+.schedule-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
 }
 
-.attendance-card {
-    padding: 25px;
-    background: #171c20;
-    border: 1px solid rgba(255, 165, 0, 0.35);
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr) auto;
-    gap: 15px;
-    transition: 0.3s ease;
-}
 
-.attendance-card:hover {
-    border-color: rgba(255, 165, 0, 0.7);
-}
+/* TABLE HEADINGS */
+.clients-table th,
+.attendance-table th,
+.schedule-table th {
+    padding: 16px 15px;
+    /* color: #ffffff; */
+    color: orange;
 
-.attendance-card p {
-    margin-bottom: 0;
-}
-
-.attendance-actions {
-    /* grid-column: 1 / -1; */
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-    flex-direction: column;
-}
-
-.attendance-actions button {
-    border: none;
-    border-radius: 8px;
-    padding: 10px 18px;
-    background: #FFA500;
-    color: #ffffff;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.attendance-actions button:hover {
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
-    transform: translateY(-2px);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 165, 0, 0.35);
 }
 
 
-/* ==============================
-TRAINING SCHEDULE
-================================= */
-
-.schedule-list {
-    display: grid;
-    gap: 18px;
-}
-
-.schedule-card {
-    padding: 25px;
-    background: #171c20;
-    border: 1px solid rgba(255, 165, 0, 0.35);
-    border-radius: 14px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    transition: 0.3s ease;
-}
-
-.schedule-card:hover {
-    border-color: rgba(255, 165, 0, 0.7);
+/* TABLE DATA */
+.clients-table td,
+.attendance-table td,
+.schedule-table td {
+    padding: 16px 15px;
+    /* color: #FFA500; */
+    color: #ffffff;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 
-/* ==============================
-MY PROFILE
-================================= */
+/* LAST ROW */
+.clients-table tbody tr:last-child td,
+.attendance-table tbody tr:last-child td,
+.schedule-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* TABLE ROW HOVER */
+.clients-table tbody tr:hover,
+.attendance-table tbody tr:hover,
+.schedule-table tbody tr:hover {
+    background: rgba(255, 165, 0, 0.05);
+}
+
+
+/* ========================================= */
+/* MY PROFILE */
+/* ========================================= */
 
 .profile-card {
     padding: 25px;
@@ -378,10 +300,20 @@ MY PROFILE
     border-color: rgba(255, 165, 0, 0.7);
 }
 
+.profile-card p {
+    margin-bottom: 12px;
+    color: #c9d0d5;
+    font-size: 14px;
+}
 
-/* ==============================
-NOTIFICATIONS
-================================= */
+.profile-card p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ========================================= */
+/* NOTIFICATIONS */
+/* ========================================= */
 
 .notification-list {
     display: grid;
@@ -407,28 +339,27 @@ NOTIFICATIONS
 }
 
 
-
-
-
+/* PAGE OPEN ANIMATION */
 body {
     animation: dashboardOpen 0.6s ease-in;
 }
 
 @keyframes dashboardOpen {
+
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
-} 
+
+}
 
 
-
-
-/* ==============================
-MOBILE
-================================= */
+/* ========================================= */
+/* TABLET */
+/* ========================================= */
 
 @media screen and (max-width: 1100px) {
 
@@ -436,12 +367,12 @@ MOBILE
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .attendance-card {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
 }
 
+
+/* ========================================= */
+/* SMALL LAPTOP / TABLET */
+/* ========================================= */
 
 @media screen and (max-width: 800px) {
 
@@ -459,12 +390,12 @@ MOBILE
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .attendance-card {
-        grid-template-columns: 1fr 1fr;
-    }
-
 }
 
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
 
 @media screen and (max-width: 600px) {
 
@@ -508,20 +439,13 @@ MOBILE
         grid-template-columns: 1fr;
     }
 
-    .attendance-card {
-        grid-template-columns: 1fr;
-    }
-
     .dashboard-title {
         font-size: 27px;
     }
 
-    .attendance-actions {
-        flex-direction: column;
-    }
-
-    .attendance-actions button {
-        width: 100%;
+    .theme-toggle {
+        width: 42px;
+        height: 42px;
     }
 
 }

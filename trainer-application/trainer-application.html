@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainer Application | Gym Management System</title>
+    <link rel="stylesheet" href="trainer-application.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="trainer-container">
+
+        <div class="trainer-box">
+
+            <h1 class="page-title">Trainer Application Form</h1>
+
+            <form class="trainer-form" id="trainerApplicationForm">
+
+
+                <!-- Personal Information -->
+
+                <div class="personal-section">
+
+                    <h2 class="section-title">Personal Information</h2>
+
+
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your name">
+                    <small id="fullNameError"></small>
+                    <br>
+
+
+                    <label for="fatherName">Father Name</label>
+                    <input type="text" id="fatherName" name="fatherName" placeholder="Enter your father name">
+                    <small id="fatherNameError"></small>
+                    <br>
+
+
+                    <label for="cnic">CNIC</label>
+                    <input type="text" id="cnic" name="cnic" placeholder="Enter CNIC">
+                    <small id="cnicError"></small>
+                    <br>
+
+
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender">
+
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+
+                    </select>
+
+                    <small id="genderError"></small>
+                    <br>
+
+
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth">
+                    <small id="dateOfBirthError"></small>
+
+                </div>
+
+
+                <!-- Contact Information -->
+
+                <div class="contact-section">
+
+                    <h2 class="section-title">Contact Information</h2>
+
+
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
+                    <small id="phoneNumberError"></small>
+                    <br>
+
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <small id="emailError"></small>
+                    <br>
+
+
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Enter your address">
+                    <small id="addressError"></small>
+
+                </div>
+
+
+                <!-- Professional Information -->
+
+                <div class="professional-section">
+
+                    <h2 class="section-title">Professional Information</h2>
+
+
+                    <label for="specialization">Specialization</label>
+                    <input type="text" id="specialization" name="specialization" placeholder="Enter your specialization">
+                    <small id="specializationError"></small>
+                    <br>
+
+
+                    <label for="experience">Experience</label>
+                    <input type="text" id="experience" name="experience" placeholder="Enter your experience">
+                    <small id="experienceError"></small>
+                    <br>
+
+
+                    <label for="previousOrganization">
+                        Previous Gym / Organization
+                    </label>
+
+                    <input type="text" id="previousOrganization" name="previousOrganization"
+                     placeholder="Enter previous gym or organization">
+
+                    <small id="previousOrganizationError"></small>
+                    <br>
+
+
+                    <label for="qualification">
+                        Qualification / Certification
+                    </label>
+
+                    <input
+                        type="text"
+                        id="qualification"
+                        name="qualification" placeholder="Enter your qualification or certification">
+
+                    <small id="qualificationError"></small>
+                    <br>
+
+
+                    <label for="professionalSummary">
+                        Professional Summary / About
+                    </label>
+
+                    <textarea
+                        id="professionalSummary"
+                        name="professionalSummary"
+                        rows="5" placeholder="Write a short professional summary"></textarea>
+
+                    <small id="professionalSummaryError"></small>
+
+                </div>
+
+
+                <!-- Availability -->
+
+                <div class="availability-section">
+
+                    <h2 class="section-title">Availability</h2>
+
+
+                    <label for="availableDays">Available Days</label>
+                    <input type="text" id="availableDays" name="availableDays" placeholder="Enter your available days">
+                    <small id="availableDaysError"></small>
+                    <br>
+
+
+                    <label for="workingTime">
+                        Preferred Working Time
+                    </label>
+
+                    <input
+                        type="text"
+                        id="workingTime"
+                        name="workingTime" placeholder="Enter your preferred working time">
+
+                    <small id="workingTimeError"></small>
+
+                </div>
+
+
+                <!-- Submit Button -->
+
+                <div class="form-actions">
+
+                    <button type="submit">
+                        Submit Application
+                    </button>
+
+                       <p id="successMessage"></p>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="trainer-application.js"></script>
+
+</body>
+</html>
