@@ -436,7 +436,7 @@ TABLE LAST ROW
 /* ============================== 
 TABLE HOVER 
 ================================= */ 
-
+/* 
 .admission-table tbody tr:hover, 
 .trainers-table tbody tr:hover, 
 .active-membership-table tbody tr:hover, 
@@ -444,98 +444,63 @@ TABLE HOVER
 .expired-membership-table tbody tr:hover, 
 .attendance-table tbody tr:hover { 
     background: rgba(255, 165, 0, 0.05); 
-} 
+}  */
 
 
-/* ============================== 
-ADMISSION REQUESTS 
-================================= */ 
-
-.admission-table th, 
-.admission-table td { 
-    padding-left: 18px; 
-    padding-right: 18px; 
-} 
 
 
-/* ============================== 
-ADMISSION REQUESTS - PROPER SPACE
-================================= */ 
 
-.admission-table { 
-    min-width: 1800px; 
-} 
+/* ==============================
+   ADMISSION REQUESTS
+================================= */
 
-.admission-table th, 
-.admission-table td { 
-    padding: 16px 22px; 
-    white-space: nowrap; 
-} 
+.admission-table-container {
+    overflow-x: hidden;
+}
+
+.admission-table {
+    width: 100%;
+    min-width: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.admission-table th,
+.admission-table td {
+    padding: 15px 14px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+/* Column Widths */
+
+.admission-table th:nth-child(1),
+.admission-table td:nth-child(1) {
+    width: 30%;
+}
+
+.admission-table th:nth-child(2),
+.admission-table td:nth-child(2) {
+    width: 20%;
+}
+
+.admission-table th:nth-child(3),
+.admission-table td:nth-child(3) {
+    width: 18%;
+}
+
+.admission-table th:nth-child(4),
+.admission-table td:nth-child(4) {
+    width: 17%;
+}
+
+.admission-table th:nth-child(5),
+.admission-table td:nth-child(5) {
+    width: 15%;
+}
 
 
-/* ============================== 
-ADMISSION REQUESTS COLUMN WIDTHS
-================================= */ 
-
-.admission-table th:nth-child(1), 
-.admission-table td:nth-child(1) { 
-    min-width: 150px; 
-} 
-
-.admission-table th:nth-child(2), 
-.admission-table td:nth-child(2) { 
-    min-width: 150px; 
-} 
-
-.admission-table th:nth-child(3), 
-.admission-table td:nth-child(3) { 
-    min-width: 220px; 
-} 
-
-.admission-table th:nth-child(4), 
-.admission-table td:nth-child(4) { 
-    min-width: 130px; 
-} 
-
-.admission-table th:nth-child(5), 
-.admission-table td:nth-child(5) { 
-    min-width: 110px; 
-} 
-
-.admission-table th:nth-child(6), 
-.admission-table td:nth-child(6) { 
-    min-width: 100px; 
-} 
-
-.admission-table th:nth-child(7), 
-.admission-table td:nth-child(7) { 
-    min-width: 160px; 
-} 
-
-.admission-table th:nth-child(8), 
-.admission-table td:nth-child(8) { 
-    min-width: 190px; 
-} 
-
-.admission-table th:nth-child(9), 
-.admission-table td:nth-child(9) { 
-    min-width: 120px; 
-} 
-
-.admission-table th:nth-child(10), 
-.admission-table td:nth-child(10) { 
-    min-width: 100px; 
-} 
-
-.admission-table th:nth-child(11), 
-.admission-table td:nth-child(11) { 
-    min-width: 130px; 
-} 
-
-.admission-table th:nth-child(12), 
-.admission-table td:nth-child(12) { 
-    min-width: 120px; 
-} 
 
 
 /* ============================== 
@@ -1219,4 +1184,182 @@ MOBILE
     .memberships { 
         font-size: 24px; 
     } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================
+   ADMISSION REVIEW BUTTON
+================================= */
+
+.review-admission-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #171c20;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.review-admission-btn:hover {
+    background: #afada9;
+}
+
+/* .review-admission-btn.active { */
+    /* background: #FFA500; */
+    /* color: #171c20; */
+/* } */
+
+
+
+
+
+.admission-details {
+    width: 100%;
+    /* padding: 22px 14px; */
+    /* background: transparent; */
+    border: none;
+    border-radius: 0;
+}
+
+.admission-details h3 {
+    /* margin-bottom: 10px; */
+    color: #FFA500;
+    font-size: 25px;
+}
+
+.admission-details p {
+    /* margin-bottom: 10px; */
+    /* color: #d8dde0; */
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+
+
+
+
+
+
+/* ==============================
+   APPROVE / REJECT BUTTONS
+================================= */
+
+.request-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.approve-btn,
+.reject-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.approve-btn {
+    background: #FFA500;
+    color: #171c20;
+}
+
+.approve-btn:hover {
+    background: #e69500;
+}
+
+.reject-btn {
+    background: #171c20;
+    color: #ffffff;
+    border: 1px solid rgba(255, 165, 0, 0.6);
+}
+
+.reject-btn:hover {
+    background: #252a30;
+}
+
+
+
+
+/* ================= Review Trainer Button ================= */
+
+.review-trainer-btn {
+    /* background-color: #f28c28; */
+    /* color: #ffffff; */
+    color: #14191d;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-trainer-btn:hover {
+    /* background-color: #d97516; */
+    background-color: #c9d0d5;
+}
+/* 
+.review-trainer-btn.active {
+    background-color: #292d32;
+    color: #f28c28;
+    border: 1px solid #f28c28;
+} */
+
+
+
+/* ================= Trainer Details Heading ================= */
+
+.hired-trainer-details h3 {
+    color: #f39c12;
+    font-size: 25px;
+}
+
+
+
+/* Hire Trainer Button */
+.hire-trainer-btn {
+    /* background-color: #f97316; */
+    /* background-color: #f39c12; */
+    background-color: #f39c12;
+    /* color: #ffffff; */
+    color: #14191d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+     margin-right: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hire-trainer-btn:hover {
+    /* background-color: #ea580c; */
+    background-color: #9ca3af;
+}
+
+.hire-trainer-btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
 }

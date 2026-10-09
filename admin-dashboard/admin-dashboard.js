@@ -163,18 +163,6 @@ expiringSoonList.appendChild(membershipCard);
 
 
 
-        //     const membershipCard = expiringSoonTemplate.content.cloneNode(true);
-        //     const paragraphs = membershipCard.querySelectorAll("p");
-        //     // ================= client card ====================
-        //     paragraphs[0].textContent = "Client ID : " + client.clientId;
-        //     paragraphs[1].textContent = "Client Name : " + client.name;
-        //     paragraphs[2].textContent = "Entry Date : " + new Date(client.approvalDate).toLocaleDateString();
-        //     paragraphs[3].textContent = "Expiry Date : " + expiryDate.toLocaleDateString();
-        //     paragraphs[4].textContent = "Membership Status : Expiring Soon";
-
-
-        //     paragraphs[5].textContent = "Warning  : Membership expires in " + daysLeft + " days !";
-        //     expiringSoonList.appendChild(membershipCard);
          }
 
         //================= Active memberships ==================
@@ -200,35 +188,7 @@ membershipStatusCell.textContent = client.status;
 membershipRow.appendChild(membershipStatusCell);
 
 activeMembershipList.appendChild(membershipRow);
-
-
-
-
-
-        // // ================== Div Create for Membership Client ================
-        // const membershipCard = document.createElement("div");
-        // membershipCard.className = "membership-client";
-
-
-        // // ================== Client Id =================
-        // const clientId = document.createElement("p");
-        // clientId.textContent = "Client ID : " + client.clientId;
-        // membershipCard.appendChild(clientId);
-
-
-        // // ================= Client Name =======================
-        // const clientName = document.createElement("p");
-        // clientName.textContent = "Client Name : " + client.name;
-        // membershipCard.appendChild(clientName);
-
-
-        // // ================= Membership Status ================
-        // const membershipStatus = document.createElement("p");
-        // membershipStatus.textContent = "Membership Status : " + client.status;
-        // membershipCard.appendChild(membershipStatus);
-
-        // activeMembershipList.appendChild(membershipCard);
-        }
+    }
 
 
         //================ Expired memberships ===================
@@ -251,40 +211,20 @@ activeMembershipList.appendChild(membershipRow);
 if(expiringNotificationIndex !== -1){
     notifications.splice(expiringNotificationIndex, 1);
     localStorage.setItem("notifications", JSON.stringify(notifications));
-}
+    }
 
           
-      const expiredCard = expiredTemplate.content.cloneNode(true);
-const expiredCells = expiredCard.querySelectorAll("td");
+    const expiredCard = expiredTemplate.content.cloneNode(true);
+     const expiredCells = expiredCard.querySelectorAll("td");
 
-// ================= client Row ===================
-expiredCells[0].textContent = client.clientId;
-expiredCells[1].textContent = client.name;
-expiredCells[2].textContent = new Date(client.approvalDate).toLocaleDateString();
-expiredCells[3].textContent = expiryDate.toLocaleDateString();
-expiredCells[4].textContent = "Expired";
+    // ================= client Row ===================
+    expiredCells[0].textContent = client.clientId;
+    expiredCells[1].textContent = client.name;
+    expiredCells[2].textContent = new Date(client.approvalDate).toLocaleDateString();
+    expiredCells[3].textContent = expiryDate.toLocaleDateString();
+    expiredCells[4].textContent = "Expired";
 
-expiredMemberships.appendChild(expiredCard);
-
-
-
-
-
-
-
-
-
-
-
-        // const expiredCard = expiredTemplate.content.cloneNode(true);
-        // const expiredParagraphs = expiredCard.querySelectorAll("p");
-        // // ================= client Card ===================
-        // expiredParagraphs[0].textContent = "Client ID : " + client.clientId;
-        // expiredParagraphs[1].textContent = "Client Name : " + client.name;
-        // expiredParagraphs[2].textContent = "Entry Date : " + new Date(client.approvalDate).toLocaleDateString();
-        // expiredParagraphs[3].textContent = "Expiry Date : " + expiryDate.toLocaleDateString();
-        // expiredParagraphs[4].textContent = "Membership Status : Expired";
-        // expiredMemberships.appendChild(expiredCard);
+    expiredMemberships.appendChild(expiredCard);
         }
     }   
 });
@@ -315,100 +255,124 @@ totalClients.textContent = activeClientCount + pendingClients.length;
 
 
 
+
+
+
+
+
+
+
+
+
+
 // //================== Display Pending Client ===============
 
 // pendingClients.forEach(function(client){
-//     const admissionCard = document.createElement("div");
-//     admissionCard.className = "admission-card";
 
+//     const admissionRow = document.createElement("tr");
 
-//     const clientInfo = document.createElement("div");
-//     clientInfo.className = "client-info";
+//     // ================= Client Name =================
+//     const clientName = document.createElement("td");
+//     clientName.textContent = client.name;
+//     admissionRow.appendChild(clientName);
 
+//     // ================= Phone Number =================
+//     const clientPhone = document.createElement("td");
+//     clientPhone.textContent = client.phoneNumber;
+//     admissionRow.appendChild(clientPhone);
 
-//     // ============= Info Name ============
-//     const clientName = document.createElement("p");
-//     clientName.textContent = "Client Name: " + client.name;
-//     clientInfo.appendChild(clientName);
+//     // ================= Email =================
+//     const clientEmail = document.createElement("td");
+//     clientEmail.textContent = client.email;
+//     admissionRow.appendChild(clientEmail);
 
+//     // ================= Package =================
+//     const clientPackage = document.createElement("td");
 
-//     // ================ Phone Number ================
-//     const clientPhone = document.createElement("p");
-//     clientPhone.textContent = "Phone Number: " + client.phoneNumber;
-//     clientInfo.appendChild(clientPhone);
-
-
-//     // ================== Email ================
-//     const clientEmail = document.createElement("p");
-//     clientEmail.textContent = "Email: " + client.email;
-//     clientInfo.appendChild(clientEmail);
-
-
-//     // ================ Selected Package ================
-//     const clientPackage = document.createElement("p");
 //     if(client.personalDuration !== ""){
-//         clientPackage.textContent = "Selected Package: Personal Training"; 
+//         clientPackage.textContent = "Personal Training";
 //     }
+
 //     if(client.groupDuration !== ""){
-//         clientPackage.textContent = "Selected Package: Group Training";
+//         clientPackage.textContent = "Group Training";
 //     }
-//     clientInfo.appendChild(clientPackage);
 
+//     admissionRow.appendChild(clientPackage);
 
-//     // ================== Duration ================
-//     const clientDuration = document.createElement("p");
+//     // ================= Duration =================
+//     const clientDuration = document.createElement("td");
+
 //     if(client.personalDuration !== ""){
-//         clientDuration.textContent = "Duration: " + client.personalDuration.split(" - ")[0];
+//         clientDuration.textContent =
+//             client.personalDuration.split(" - ")[0];
 //     }
-//     if(client.groupDuration !== ""){
-//         clientDuration.textContent = "Duration: " + client.groupDuration.split(" - ")[0];
-//     }
-//     clientInfo.appendChild(clientDuration);
 
-//     // ================ Fee ===================
-//     const clientFee = document.createElement("p");
+//     if(client.groupDuration !== ""){
+//         clientDuration.textContent =
+//             client.groupDuration.split(" - ")[0];
+//     }
+
+//     admissionRow.appendChild(clientDuration);
+
+//     // ================= Fee =================
+//     const clientFee = document.createElement("td");
+
 //     if(client.personalDuration !== ""){
-//         clientFee.textContent = "Fee: " + client.personalDuration.split(" - ")[1];
+//         clientFee.textContent =
+//             client.personalDuration.split(" - ")[1];
 //     }
+
 //     if(client.groupDuration !== ""){
-//         clientFee.textContent = "Fee: " + client.groupDuration.split(" - ")[1];
+//         clientFee.textContent =
+//             client.groupDuration.split(" - ")[1];
 //     }
-//     clientInfo.appendChild(clientFee);
 
+//     admissionRow.appendChild(clientFee);
 
-//     // =============== Payment method ===============
-//     const clientPaymentMethod = document.createElement("p");
-//     clientPaymentMethod.textContent = "Payment Method: " + client.payment.paymentMethod;
-//     clientInfo.appendChild(clientPaymentMethod);
+//     // ================= Payment Method =================
+//     const clientPaymentMethod = document.createElement("td");
+//     clientPaymentMethod.textContent =
+//         client.payment.paymentMethod;
 
+//     admissionRow.appendChild(clientPaymentMethod);
 
-//     // =============== Reference Transaction Number =================
+//     // ================= Reference Number =================
+//     const clientReference = document.createElement("td");
+
 //     if(client.payment.referenceNumber !== ""){
-//         const clientReference = document.createElement("p");
-//         clientReference.textContent = "Reference / Transaction Number: " + client.payment.referenceNumber;
-//         clientInfo.appendChild(clientReference);
+//         clientReference.textContent =
+//             client.payment.referenceNumber;
+//     }
+//     else{
+//         clientReference.textContent = "-";
 //     }
 
+//     admissionRow.appendChild(clientReference);
 
-//     // ================ Date =================
-//     const clientDate = document.createElement("p");
-//     clientDate.textContent = "Date: " + client.payment.paymentDate;
-//     clientInfo.appendChild(clientDate);
+//     // ================= Payment Date =================
+//     const clientDate = document.createElement("td");
+//     clientDate.textContent =
+//         client.payment.paymentDate;
 
+//     admissionRow.appendChild(clientDate);
 
-//     // ================ Time ================
-//     const clientTime = document.createElement("p");
-//     clientTime.textContent = "Time: " + client.payment.paymentTime;
-//     clientInfo.appendChild(clientTime);
+//     // ================= Payment Time =================
+//     const clientTime = document.createElement("td");
+//     clientTime.textContent =
+//         client.payment.paymentTime;
 
+//     admissionRow.appendChild(clientTime);
 
-//     // ================= Status ===================
-//     const clientStatus = document.createElement("p");
-//     clientStatus.textContent = "Status: " + client.payment.status;
-//     clientInfo.appendChild(clientStatus);
+//     // ================= Payment Status =================
+//     const clientStatus = document.createElement("td");
+//     clientStatus.textContent =
+//         client.payment.status;
 
+//     admissionRow.appendChild(clientStatus);
 
-//     // ============== Actions Buttons ====================
+//     // ================= Action =================
+//     const actionCell = document.createElement("td");
+
 //     const actionButtons = document.createElement("div");
 //     actionButtons.className = "request-actions";
 
@@ -416,60 +380,64 @@ totalClients.textContent = activeClientCount + pendingClients.length;
 //     approveButton.textContent = "Approve";
 //     approveButton.className = "approve-btn";
 
-//     // ================ approval =================
 //     approveButton.addEventListener("click", function(){
+
 //         client.status = "Approved";
 //         client.payment.status = "Verified";
 //         client.approvalDate = new Date().toLocaleDateString();
 
-
-
-//     // ================== ID Generate ================
 //         let clientId;
+
 //         do{
-//             clientId = "CL" + Math.floor(1000 + Math.random() * 9000);
+//             clientId =
+//                 "CL" + Math.floor(1000 + Math.random() * 9000);
+
 //         }while(clients.some(function(client){
 //             return client.clientId === clientId;
 //         }));
+
 //         client.clientId = clientId;
 
+//         let initialPassword =
+//             Math.random().toString(36).slice(2, 8);
 
-//         // ================= Password Generate ================
-//          let initialPassword = Math.random().toString(36).slice(2, 8);
-//          client.password = initialPassword;
+//         client.password = initialPassword;
 
-
-
-
-//         // =========================== NOTIFICATIONS SECTION ==============================
-//         // ================== Admission approved notification ====================
 //         const admissionNotification = {
 //             clientId: client.clientId,
 //             type: "Admission Approved",
 //             message: "Your admission has been approved."
-//         }
+//         };
+
 //         notifications.push(admissionNotification);
-//         localStorage.setItem("notifications", JSON.stringify(notifications));
 
+//         localStorage.setItem(
+//             "notifications",
+//             JSON.stringify(notifications)
+//         );
 
-
-
-//         // ================ Client id jenerate notification =====================
 //         const idGeneratedNotification = {
 //             clientId: client.clientId,
 //             type: "Client ID Generated",
-//             message: "Your Client ID and initial password have been generated."
+//             message:
+//                 "Your Client ID and initial password have been generated."
 //         };
+
 //         notifications.push(idGeneratedNotification);
-//         localStorage.setItem("notifications", JSON.stringify(notifications));
 
+//         localStorage.setItem(
+//             "notifications",
+//             JSON.stringify(notifications)
+//         );
 
-        
-
-//         localStorage.setItem("clients", JSON.stringify(clients));
+//         localStorage.setItem(
+//             "clients",
+//             JSON.stringify(clients)
+//         );
 
 //         approveButton.disabled = true;
 //         rejectButton.disabled = true;
+
 //     });
 
 //     const rejectButton = document.createElement("button");
@@ -479,11 +447,20 @@ totalClients.textContent = activeClientCount + pendingClients.length;
 //     actionButtons.appendChild(approveButton);
 //     actionButtons.appendChild(rejectButton);
 
+//     actionCell.appendChild(actionButtons);
 
-//     admissionCard.appendChild(clientInfo);
-//        admissionCard.appendChild(actionButtons);
-//     admissionList.appendChild(admissionCard);
+//     admissionRow.appendChild(actionCell);
+
+//     admissionList.appendChild(admissionRow);
+
 // });
+
+
+
+
+
+
+
 
 
 
@@ -501,182 +478,185 @@ pendingClients.forEach(function(client){
     clientName.textContent = client.name;
     admissionRow.appendChild(clientName);
 
-    // ================= Phone Number =================
-    const clientPhone = document.createElement("td");
-    clientPhone.textContent = client.phoneNumber;
-    admissionRow.appendChild(clientPhone);
-
-    // ================= Email =================
-    const clientEmail = document.createElement("td");
-    clientEmail.textContent = client.email;
-    admissionRow.appendChild(clientEmail);
 
     // ================= Package =================
     const clientPackage = document.createElement("td");
+    const isPersonal = client.personalDuration !== "";
 
-    if(client.personalDuration !== ""){
-        clientPackage.textContent = "Personal Training";
-    }
-
-    if(client.groupDuration !== ""){
-        clientPackage.textContent = "Group Training";
-    }
+    clientPackage.textContent = isPersonal
+        ? "Personal Training"
+        : "Group Training";
 
     admissionRow.appendChild(clientPackage);
 
+
     // ================= Duration =================
     const clientDuration = document.createElement("td");
+    const selectedDuration = isPersonal
+        ? client.personalDuration
+        : client.groupDuration;
 
-    if(client.personalDuration !== ""){
-        clientDuration.textContent =
-            client.personalDuration.split(" - ")[0];
-    }
-
-    if(client.groupDuration !== ""){
-        clientDuration.textContent =
-            client.groupDuration.split(" - ")[0];
-    }
+    clientDuration.textContent = selectedDuration
+        ? selectedDuration.split(" - ")[0]
+        : "-";
 
     admissionRow.appendChild(clientDuration);
 
-    // ================= Fee =================
-    const clientFee = document.createElement("td");
-
-    if(client.personalDuration !== ""){
-        clientFee.textContent =
-            client.personalDuration.split(" - ")[1];
-    }
-
-    if(client.groupDuration !== ""){
-        clientFee.textContent =
-            client.groupDuration.split(" - ")[1];
-    }
-
-    admissionRow.appendChild(clientFee);
-
-    // ================= Payment Method =================
-    const clientPaymentMethod = document.createElement("td");
-    clientPaymentMethod.textContent =
-        client.payment.paymentMethod;
-
-    admissionRow.appendChild(clientPaymentMethod);
-
-    // ================= Reference Number =================
-    const clientReference = document.createElement("td");
-
-    if(client.payment.referenceNumber !== ""){
-        clientReference.textContent =
-            client.payment.referenceNumber;
-    }
-    else{
-        clientReference.textContent = "-";
-    }
-
-    admissionRow.appendChild(clientReference);
-
-    // ================= Payment Date =================
-    const clientDate = document.createElement("td");
-    clientDate.textContent =
-        client.payment.paymentDate;
-
-    admissionRow.appendChild(clientDate);
-
-    // ================= Payment Time =================
-    const clientTime = document.createElement("td");
-    clientTime.textContent =
-        client.payment.paymentTime;
-
-    admissionRow.appendChild(clientTime);
 
     // ================= Payment Status =================
-    const clientStatus = document.createElement("td");
-    clientStatus.textContent =
-        client.payment.status;
+    const paymentStatus = document.createElement("td");
+    paymentStatus.textContent = client.payment.status;
+    admissionRow.appendChild(paymentStatus);
 
-    admissionRow.appendChild(clientStatus);
 
-    // ================= Action =================
+    // ================= Review Button =================
     const actionCell = document.createElement("td");
 
-    const actionButtons = document.createElement("div");
-    actionButtons.className = "request-actions";
+    const reviewButton = document.createElement("button");
+    reviewButton.textContent = "Review";
+    reviewButton.className = "review-admission-btn";
 
-    const approveButton = document.createElement("button");
-    approveButton.textContent = "Approve";
-    approveButton.className = "approve-btn";
-
-    approveButton.addEventListener("click", function(){
-
-        client.status = "Approved";
-        client.payment.status = "Verified";
-        client.approvalDate = new Date().toLocaleDateString();
-
-        let clientId;
-
-        do{
-            clientId =
-                "CL" + Math.floor(1000 + Math.random() * 9000);
-
-        }while(clients.some(function(client){
-            return client.clientId === clientId;
-        }));
-
-        client.clientId = clientId;
-
-        let initialPassword =
-            Math.random().toString(36).slice(2, 8);
-
-        client.password = initialPassword;
-
-        const admissionNotification = {
-            clientId: client.clientId,
-            type: "Admission Approved",
-            message: "Your admission has been approved."
-        };
-
-        notifications.push(admissionNotification);
-
-        localStorage.setItem(
-            "notifications",
-            JSON.stringify(notifications)
-        );
-
-        const idGeneratedNotification = {
-            clientId: client.clientId,
-            type: "Client ID Generated",
-            message:
-                "Your Client ID and initial password have been generated."
-        };
-
-        notifications.push(idGeneratedNotification);
-
-        localStorage.setItem(
-            "notifications",
-            JSON.stringify(notifications)
-        );
-
-        localStorage.setItem(
-            "clients",
-            JSON.stringify(clients)
-        );
-
-        approveButton.disabled = true;
-        rejectButton.disabled = true;
-
-    });
-
-    const rejectButton = document.createElement("button");
-    rejectButton.textContent = "Reject";
-    rejectButton.className = "reject-btn";
-
-    actionButtons.appendChild(approveButton);
-    actionButtons.appendChild(rejectButton);
-
-    actionCell.appendChild(actionButtons);
-
+    actionCell.appendChild(reviewButton);
     admissionRow.appendChild(actionCell);
 
     admissionList.appendChild(admissionRow);
+
+
+    // ================= Details Row =================
+    const detailsRow = document.createElement("tr");
+
+    const detailsCell = document.createElement("td");
+    detailsCell.colSpan = 5;
+
+    const admissionDetails = document.createElement("div");
+    admissionDetails.className = "admission-details";
+    admissionDetails.style.display = "none";
+
+    detailsCell.appendChild(admissionDetails);
+    detailsRow.appendChild(detailsCell);
+
+    admissionList.appendChild(detailsRow);
+
+
+    // ================= Review Details =================
+    reviewButton.addEventListener("click", function(){
+
+        if(admissionDetails.style.display === "block"){
+            admissionDetails.style.display = "none";
+            reviewButton.classList.remove("active");
+            return;
+        }
+
+        // Close other open admission details
+        document.querySelectorAll(".admission-details").forEach(function(details){
+
+            details.style.display = "none";
+
+            const otherButton = details.parentElement
+                .querySelector(".review-admission-btn");
+
+            if(otherButton){
+                otherButton.classList.remove("active");
+            }
+        });
+
+        admissionDetails.textContent = "";
+        admissionDetails.style.display = "block";
+        reviewButton.classList.add("active");
+
+
+        // ================= Details Heading =================
+        const detailsHeading = document.createElement("h3");
+        detailsHeading.textContent = "Admission Details";
+        admissionDetails.appendChild(detailsHeading);
+
+
+        // ================= Complete Client Details =================
+        const details = [
+             ["Client ID", client.clientId || "-"],
+            ["Client Name", client.name],
+            ["Father Name", client.fatherName],
+            ["Phone Number", client.phoneNumber],
+            ["Email", client.email],
+            ["CNIC", client.cnic],
+            ["Date of Birth", client.dateOfBirth],
+            ["Gender", client.gender],
+            ["Blood Group", client.bloodGroup],
+            ["Address", client.address],
+            ["Emergency Contact Name", client.amergencyContactName],
+            ["Emergency Contact Number", client.amergencyContactNumber],
+            ["Medical Condition", client.medicalCondition],
+            ["Package", isPersonal ? "Personal Training" : "Group Training"],
+            ["Duration & Fee", selectedDuration || "-"],
+            ["Payment Method", client.payment.paymentMethod],
+            ["Reference Number", client.payment.referenceNumber || "-"],
+            ["Payment Date", client.payment.paymentDate],
+            ["Payment Time", client.payment.paymentTime],
+            ["Payment Status", client.payment.status]
+        ];
+
+        details.forEach(function(item){
+
+            const detail = document.createElement("p");
+            detail.textContent = item[0] + " : " + (item[1] || "-");
+            admissionDetails.appendChild(detail);
+        });
+
+
+        // ================= Action Buttons =================
+        const actionButtons = document.createElement("div");
+        actionButtons.className = "request-actions";
+
+        const approveButton = document.createElement("button");
+        approveButton.textContent = "Approve";
+        approveButton.className = "approve-btn";
+
+        const rejectButton = document.createElement("button");
+        rejectButton.textContent = "Reject";
+        rejectButton.className = "reject-btn";
+
+        actionButtons.appendChild(approveButton);
+        actionButtons.appendChild(rejectButton);
+
+        admissionDetails.appendChild(actionButtons);
+
+
+        // ================= Approve Admission =================
+        approveButton.addEventListener("click", function(){
+
+            client.status = "Approved";
+            client.payment.status = "Verified";
+            client.approvalDate = new Date().toLocaleDateString();
+
+            localStorage.setItem("clients", JSON.stringify(clients));
+
+            alert("Admission approved successfully.");
+
+            window.location.reload();
+        });
+
+
+        // ================= Reject Admission =================
+        rejectButton.addEventListener("click", function(){
+
+            const confirmReject = confirm(
+                "Are you sure you want to reject this admission?"
+            );
+
+            if(!confirmReject){
+                return;
+            }
+
+            client.status = "Rejected";
+
+            localStorage.setItem("clients", JSON.stringify(clients));
+
+            alert("Admission rejected successfully.");
+
+            window.location.reload();
+        });
+
+    });
 
 });
 
@@ -693,316 +673,10 @@ pendingClients.forEach(function(client){
 
 
 
-// // ========================== Display Approved Client ===========================
-// approvedClients.forEach(function(client){
-
-//     // ===================== Client Card ==================
-//     const clientCard = document.createElement("div");
-//     clientCard.className = "client-card";
-
-    
-//     // ================= Client Details Box =================
-//     const clientDetails = document.createElement("div");
-//     clientDetails.className = "client-details";
-
-
-//     // ===================== client Info =====================
-//     const clientInfo = document.createElement("div");
-//     clientInfo.className = "client-info";
-
-
-    
-//     // =============== Client Name ==================
-//     const clientName = document.createElement("p");
-//     clientName.textContent = "Client Name: " + client.name;
-//     clientInfo.appendChild(clientName);
-
-
-//     // =============== Client ID =====================
-//     const clientId = document.createElement("p");
-//     clientId.textContent = "Client Id: " + client.clientId;
-//     clientInfo.appendChild(clientId);
-
-
-
-
-//     // ============== Phone Number ======================
-//     // const clientPhone = document.createElement("p");
-//     // clientPhone.textContent = "Phone Number: " + client.phoneNumber;
-//     // clientInfo.appendChild(clientPhone);
-
-
-//     // ==================== Email ====================
-//     // const clientEmail = document.createElement("p");
-//     // clientEmail.textContent = "Email: " + client.email;
-//     // clientInfo.appendChild(clientEmail);
-
-
-//     // ==================== Package =======================
-//     const clientPackage = document.createElement("p");
-//     if(client.personalDuration !== ""){
-//     clientPackage.textContent = "Selected Package: Personal Training";
-//     }
-//     if(client.groupDuration !== ""){
-//         clientPackage.textContent = "Selected Package: Group Training";
-//     }
-//     clientInfo.appendChild(clientPackage);
-
-
-//     // ==================== Duration & Fee ====================
-//     // const clientDurationFee = document.createElement("p");
-//     // if(client.personalDuration !== ""){
-//         // clientDurationFee.textContent = "Duration & Fee: " + client.personalDuration;
-//     // }
-//     // if(client.groupDuration !== ""){
-//         // clientDurationFee.textContent = "Duration & Fee: " + client.groupDuration;
-//     // }
-//     // clientInfo.appendChild(clientDurationFee);
-
-
-//     // ==================== Status ===================
-//     const clientStatus = document.createElement("p");
-//     clientStatus.textContent = "Membership Status: " + client.status;
-//     clientInfo.appendChild(clientStatus);
-
-
-
-//     // ================== Manage Button ====================
-//     const clientActions = document.createElement("div");
-//     clientActions.className = "client-actions";
-
-//     const manageClientButton = document.createElement("button");
-//     manageClientButton.textContent = "Manage Client";
-//     manageClientButton.className = "manage-client-btn";
-//     clientActions.appendChild(manageClientButton);
-
-
-//     // =============== Complete Info Disply on click manage btn =======================
-//     manageClientButton.addEventListener("click", function(){
-        
-//         if(clientDetails.style.display === "block"){
-//         clientDetails.style.display = "none";
-//         clientMain.style.display = "flex";
-//         manageClientButton.classList.remove("active");
-//         return;
-//         }
-
-        
-//         document.querySelectorAll(".client-details").forEach(function(details){
-
-//     if(details !== clientDetails){
-
-//         details.style.display = "none";
-
-//         const otherClientCard = details.parentElement;
-
-//         const otherClientMain =
-//             otherClientCard.querySelector(".client-main");
-
-//         const otherManageButton =
-//             otherClientCard.querySelector(".manage-client-btn");
-
-//         otherClientMain.style.display = "flex";
-
-//         otherManageButton.classList.remove("active");
-//     }
-
-//     });
-
- 
-//         clientDetails.style.display = "block";
-//         clientMain.style.display = "none";
-//         manageClientButton.classList.add("active");
-
-//         clientDetails.textContent = "";
-
-
-//         // ================= Client Details Heading =================
-//         const detailsHeading = document.createElement("h2");
-//         detailsHeading.textContent = "Client Details";
-//         clientDetails.appendChild(detailsHeading);
-
-
-//         // =============== ID ================
-//         const clientId = document.createElement("p");
-//         clientId.textContent = "Client Id : " + client.clientId;
-//         clientDetails.appendChild(clientId);
-
-
-//         // =================== Name ======================
-//         const clientName = document.createElement("p");
-//         clientName.textContent = "Client Name : " + client.name;
-//         clientDetails.appendChild(clientName);
-
-
-//         // ===================== Father Name ======================
-//         const fatherName = document.createElement("p");
-//         fatherName.textContent = "Father Name : " + client.fatherName;
-//         clientDetails.appendChild(fatherName);
-
-
-//         // ==================== Date of BIrth =======================
-//         const dateOfBirth = document.createElement("p");
-//         dateOfBirth.textContent = "Date of Birth : " + client.dateOfBirth;
-//         clientDetails.appendChild(dateOfBirth);
-
-
-//         // ================= Gender ==================
-//         const gender = document.createElement("p");
-//         gender.textContent = "Gender : " + client.gender;
-//         clientDetails.appendChild(gender);
-
-
-//         // ==================== CNIC ===================
-//         const CNIC = document.createElement("p");
-//         CNIC.textContent = "CNIC : " + client.cnic;
-//         clientDetails.appendChild(CNIC);
-
-
-//         // =============== Blood Group ======================
-//         const bloodGroup = document.createElement("p");
-//         bloodGroup.textContent = "Blood Group : " + client.bloodGroup;
-//         clientDetails.appendChild(bloodGroup);
-
-
-//         // =================== Phone Number ====================
-//         const phoneNumber = document.createElement("p");
-//         phoneNumber.textContent = "Phone Number : " + client.phoneNumber;
-//         clientDetails.appendChild(phoneNumber);
-
-
-//         // ================= Email ================
-//         const email = document.createElement("p");
-//         email.textContent = "Email : " + client.email;
-//         clientDetails.appendChild(email);
-
-
-//         // ================ Address ====================
-//         const address = document.createElement("p");
-//         address.textContent = "Address : " + client.address;
-//         clientDetails.appendChild(address);
-
-
-//         // ================== Emergency Contact Name ===================
-//         const emergencyContactName = document.createElement("p");
-//         emergencyContactName.textContent = "Emergency Contact Name : " + client.amergencyContactName;
-//         clientDetails.appendChild(emergencyContactName);
-
-
-        
-
-//         // ================== Emergency Contact Number===================
-//         const emergencyContactNumber = document.createElement("p");
-//         emergencyContactNumber.textContent = "Emergency Contact Number : " + client.amergencyContactNumber;
-//         clientDetails.appendChild(emergencyContactNumber);
-
-
-        
-//         // ================ Medical Condition ====================
-//         const medicalCondition = document.createElement("p");
-//         medicalCondition.textContent = "Medical Condition : " + client.medicalCondition;
-//         clientDetails.appendChild(medicalCondition);
-
-
-        
-//     // ==================== Package =======================
-//     const selectedPackage = document.createElement("p");
-//     if(client.personalDuration !== ""){
-//     selectedPackage.textContent = "Selected Package: Personal Training";
-//     }
-//     if(client.groupDuration !== ""){
-//         selectedPackage.textContent = "Selected Package: Group Training";
-//     }
-//     clientDetails.appendChild(selectedPackage);
-
-
-//     // ==================== Duration & Fee ====================
-//     const DurationFee = document.createElement("p");
-//     if(client.personalDuration !== ""){
-//         DurationFee.textContent = "Duration & Fee: " + client.personalDuration;
-//     }
-//     if(client.groupDuration !== ""){
-//         DurationFee.textContent = "Duration & Fee: " + client.groupDuration;
-//     }
-//     clientDetails.appendChild(DurationFee);
-
-   
-    
-//     // ================ Status ====================
-//     const membershipStatus = document.createElement("p");
-//     membershipStatus.textContent = "Membership Status : " + client.status;
-//     clientDetails.appendChild(membershipStatus);
-
-
-    
-//     // ================ Payment Method ====================
-//     const paymentMethod = document.createElement("p");
-//     paymentMethod.textContent = "Payment Method : " + client.payment.paymentMethod;
-//     clientDetails.appendChild(paymentMethod);
-
-
-    
-//     // ================ Payment Reference Number ====================
-//     if(client.payment.referenceNumber !== ""){
-//     const referenceNumber = document.createElement("p");
-//     referenceNumber.textContent = "Reference / Transaction Number : " + client.payment.referenceNumber;
-//     clientDetails.appendChild(referenceNumber);
-//     }
-
-    
-//     // ================ Date ====================
-//     const paymentDate = document.createElement("p");
-//     paymentDate.textContent = "Payment Date : " + client.payment.paymentDate;
-//     clientDetails.appendChild(paymentDate);
-
-
-//     // ================ Time ====================
-//     const paymentTime = document.createElement("p");
-//     paymentTime.textContent = "Payment Time : " + client.payment.paymentTime;
-//     clientDetails.appendChild(paymentTime);
-
-
-    
-//     // ================ Payment Status ====================
-//     const paymentStatus = document.createElement("p");
-//     paymentStatus.textContent = "Payment Status : " + client.payment.status;
-//     clientDetails.appendChild(paymentStatus);
-//     });
-
-//     const clientMain = document.createElement("div");
-//     clientMain.className = "client-main";
-
-//     clientMain.appendChild(clientInfo);
-
-//     const clientView = document.createElement("div");
-//     clientView.className = "client-view";
-    
-
-//     clientView.appendChild(clientMain);
-//     // clientView.appendChild(clientActions);
-
-//     clientCard.appendChild(clientView);
-//     clientCard.appendChild(clientDetails);
-//     clientCard.appendChild(clientActions);
-
-//     clientsList.appendChild(clientCard);        
-// });
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ========================== Display Approved Client ===========================
-// const clientsTable = document.createElement("table");
-// clientsTable.className = "admin-table";
+
 
 
 const clientsTable = document.createElement("table"); 
@@ -1342,8 +1016,6 @@ clientsList.appendChild(clientsTableContainer);
 
 // ============ Trainer Applications ==================
 
-// let pendingTrainerApplications =
-//     JSON.parse(sessionStorage.getItem("pendingTrainerApplications")) || [];
 
 const trainerApplicationsList = document.getElementById("trainerApplicationsList");
 
@@ -1651,11 +1323,6 @@ if(application.interviewStatus === "Scheduled"){
     applicationDetailsColumn.appendChild(interviewTime);
 
 
-    // const meetLink = document.createElement("a");
-    // meetLink.textContent = "Join Interview";
-    // meetLink.href = application.meetLink;
-    // meetLink.target = "_blank";
-    // applicationDetailsColumn.appendChild(meetLink);
 }
 
 
@@ -1843,14 +1510,6 @@ saveInterviewButton.addEventListener("click", function(){
     joinInterviewButton.disabled = false;
 
 
-//     // Join Interview
-//     joinInterviewButton.addEventListener("click", function(){
-
-//     if(application.meetLink){
-//         window.open(application.meetLink, "_blank");
-//     }
-
-// });
 
 
 
@@ -1878,12 +1537,211 @@ if(application.interviewStatus === "Scheduled"){
 
 
 
+// // ================= Reject Application Button =================
+// const rejectApplicationButton = document.createElement("button");
+// rejectApplicationButton.textContent = "Reject Application";
+// rejectApplicationButton.className = "reject-application-btn";
+
+// applicationDetailsColumn.appendChild(rejectApplicationButton);
+
+
+
+
+
+// ================= Hire Trainer Button =================
+
+const hireTrainerButton = document.createElement("button");
+hireTrainerButton.textContent = "Hire Trainer";
+hireTrainerButton.className = "hire-trainer-btn";
+
+applicationDetailsColumn.appendChild(hireTrainerButton);
+
+
+// ================= Hire Trainer Logic =================
+
+hireTrainerButton.addEventListener("click", function() {
+
+    if (
+        application.interviewStatus !== "Scheduled" ||
+        !application.interviewDate ||
+        !application.interviewTime ||
+        !application.meetLink
+    ) {
+        alert("Please schedule the interview first.");
+        return;
+    }
+
+    const confirmHire = confirm(
+        "Are you sure you want to hire this trainer?"
+    );
+
+    if (!confirmHire) {
+        return;
+    }
+
+    const applicationIndex = pendingTrainerApplications.findIndex(
+        function(record) {
+            return record.applicationId === application.applicationId;
+        }
+    );
+
+    if (applicationIndex === -1) {
+        alert("Trainer application was not found.");
+        return;
+    }
+
+    let trainers = JSON.parse(localStorage.getItem("trainers")) || [];
+
+    // Check whether this application is already hired
+
+    const existingTrainer = trainers.find(function(record) {
+        return record.applicationId === application.applicationId;
+    });
+
+    if (existingTrainer) {
+        alert("This trainer has already been hired.");
+        return;
+    }
+
+    // Copy the complete application record
+
+    const hiredTrainer = Object.assign(
+        {},
+        pendingTrainerApplications[applicationIndex]
+    );
+
+    // Generate a unique Trainer ID
+
+    let trainerNumber = 1;
+    let trainerId = "";
+
+    do {
+        trainerId = "TR" + String(trainerNumber).padStart(4, "0");
+        trainerNumber++;
+    } while (
+        trainers.some(function(record) {
+            return record.trainerId === trainerId;
+        })
+    );
+
+    // hiredTrainer.trainerId = trainerId;
+    // hiredTrainer.status = "Hired";
+    // hiredTrainer.interviewStatus = "Completed";
+    // hiredTrainer.hiredDate = new Date().toLocaleDateString();
+
+
+
+
+       hiredTrainer.trainerId = trainerId;
+
+       // Generate initial password for the newly hired trainer
+    //    hiredTrainer.password = Math.random().toString(36).slice(2, 10);
+    // hiredTrainer.password = "TR" + Math.random().toString(36).slice(2, 6);
+
+    hiredTrainer.password = Math.random().toString(36).slice(2, 8);
+
+       hiredTrainer.status = "Hired";
+       hiredTrainer.interviewStatus = "Completed";
+       hiredTrainer.hiredDate = new Date().toLocaleDateString();
+
+
+
+
+
+
+
+    // Save the hired trainer
+
+    trainers.push(hiredTrainer);
+
+    localStorage.setItem(
+        "trainers",
+        JSON.stringify(trainers)
+    );
+
+    // Remove the application from pending records
+
+    pendingTrainerApplications.splice(applicationIndex, 1);
+
+    localStorage.setItem(
+        "pendingTrainerApplications",
+        JSON.stringify(pendingTrainerApplications)
+    );
+
+    // Remove the application from the dashboard
+
+    row.remove();
+    detailsRow.remove();
+
+    alert(
+        "Trainer hired successfully! Trainer ID: " + trainerId
+    );
+
+});
+
+
 // ================= Reject Application Button =================
+
 const rejectApplicationButton = document.createElement("button");
 rejectApplicationButton.textContent = "Reject Application";
 rejectApplicationButton.className = "reject-application-btn";
 
 applicationDetailsColumn.appendChild(rejectApplicationButton);
+
+
+// ================= Reject Application Logic =================
+
+rejectApplicationButton.addEventListener("click", function() {
+
+    const confirmReject = confirm(
+        "Are you sure you want to reject this trainer application?"
+    );
+
+    if (!confirmReject) {
+        return;
+    }
+
+    const applicationIndex = pendingTrainerApplications.findIndex(
+        function(record) {
+            return record.applicationId === application.applicationId;
+        }
+    );
+
+    if (applicationIndex === -1) {
+        alert("Trainer application was not found.");
+        return;
+    }
+
+    let rejectedTrainerApplications =
+        JSON.parse(localStorage.getItem("rejectedTrainerApplications")) || [];
+
+    const rejectedApplication =
+        pendingTrainerApplications[applicationIndex];
+
+    rejectedApplication.status = "Rejected";
+
+    rejectedTrainerApplications.push(rejectedApplication);
+
+    localStorage.setItem(
+        "rejectedTrainerApplications",
+        JSON.stringify(rejectedTrainerApplications)
+    );
+
+    pendingTrainerApplications.splice(applicationIndex, 1);
+
+    localStorage.setItem(
+        "pendingTrainerApplications",
+        JSON.stringify(pendingTrainerApplications)
+    );
+
+    row.remove();
+    detailsRow.remove();
+
+    alert("Trainer application rejected successfully.");
+
+});
+
+
 
 
     });
@@ -1902,4 +1760,172 @@ applicationDetailsColumn.appendChild(rejectApplicationButton);
     // Details row main row ke immediately neeche
     trainerApplicationsList.appendChild(detailsRow);
 
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ================= Display Hired Trainers =================
+
+const trainersList = document.getElementById("trainersList");
+
+let trainers = JSON.parse(localStorage.getItem("trainers")) || [];
+
+trainers.forEach(function(trainer) {
+
+    // Sirf hired trainers display honge
+    if (trainer.status !== "Hired") {
+        return;
+    }
+
+    const trainerRow = document.createElement("tr");
+
+    // ================= Trainer ID =================
+    const trainerIdCell = document.createElement("td");
+    trainerIdCell.textContent = trainer.trainerId || "-";
+    trainerRow.appendChild(trainerIdCell);
+
+    // ================= Trainer Name =================
+    const trainerNameCell = document.createElement("td");
+    trainerNameCell.textContent = trainer.fullName || "-";
+    trainerRow.appendChild(trainerNameCell);
+
+    // ================= Experience =================
+    const experienceCell = document.createElement("td");
+    experienceCell.textContent = trainer.experience || "-";
+    trainerRow.appendChild(experienceCell);
+
+    // ================= Specialization =================
+    const specializationCell = document.createElement("td");
+    specializationCell.textContent = trainer.specialization || "-";
+    trainerRow.appendChild(specializationCell);
+
+    // ================= Available Days =================
+    const availableDaysCell = document.createElement("td");
+    availableDaysCell.textContent = trainer.availableDays || "-";
+    trainerRow.appendChild(availableDaysCell);
+
+    // ================= Available Timings =================
+    const timingsCell = document.createElement("td");
+    timingsCell.textContent = trainer.workingTime || "-";
+    trainerRow.appendChild(timingsCell);
+
+    // ================= Assigned Clients =================
+    const assignedClientsCell = document.createElement("td");
+
+    const assignedClients = Array.isArray(trainer.assignedClients)
+        ? trainer.assignedClients
+        : [];
+
+    assignedClientsCell.textContent = assignedClients.length;
+
+    trainerRow.appendChild(assignedClientsCell);
+
+    // ================= Action =================
+    const actionCell = document.createElement("td");
+
+    const reviewButton = document.createElement("button");
+    reviewButton.textContent = "Review";
+    reviewButton.className = "review-trainer-btn";
+
+    actionCell.appendChild(reviewButton);
+    trainerRow.appendChild(actionCell);
+
+    // ================= Trainer Details Row =================
+    const detailsRow = document.createElement("tr");
+
+    const detailsCell = document.createElement("td");
+    detailsCell.colSpan = 8;
+
+    const trainerDetails = document.createElement("div");
+    trainerDetails.className = "hired-trainer-details";
+    trainerDetails.style.display = "none";
+
+    detailsCell.appendChild(trainerDetails);
+    detailsRow.appendChild(detailsCell);
+
+    // ================= Review Trainer =================
+    reviewButton.addEventListener("click", function() {
+
+        if (trainerDetails.style.display === "block") {
+            trainerDetails.style.display = "none";
+            reviewButton.classList.remove("active");
+            return;
+        }
+
+        // Doosre trainer ki open details band karna
+        document.querySelectorAll(".hired-trainer-details").forEach(
+            function(details) {
+                details.style.display = "none";
+
+                const otherButton = details.parentElement.parentElement
+                    .previousElementSibling
+                    .querySelector(".review-trainer-btn");
+
+                if (otherButton) {
+                    otherButton.classList.remove("active");
+                }
+            }
+        );
+
+        trainerDetails.textContent = "";
+        trainerDetails.style.display = "block";
+        reviewButton.classList.add("active");
+
+        // ================= Details Heading =================
+        const detailsHeading = document.createElement("h3");
+        detailsHeading.textContent = "Trainer Details";
+        trainerDetails.appendChild(detailsHeading);
+
+        // ================= Complete Trainer Information =================
+        const trainerInformation = [
+            ["Trainer ID", trainer.trainerId],
+            ["Full Name", trainer.fullName],
+            ["Father Name", trainer.fatherName],
+            ["CNIC", trainer.cnic],
+            ["Gender", trainer.gender],
+            ["Date of Birth", trainer.dateOfBirth],
+            ["Phone Number", trainer.phoneNumber],
+            ["Email", trainer.email],
+            ["Address", trainer.address],
+            ["Specialization", trainer.specialization],
+            ["Experience", trainer.experience],
+            ["Qualification / Certification", trainer.qualification],
+            ["Previous Organization", trainer.previousOrganization],
+            ["Professional Summary", trainer.professionalSummary],
+            ["Available Days", trainer.availableDays],
+            ["Preferred Working Time", trainer.workingTime],
+            ["Application Date", trainer.applicationDate],
+            ["Interview Date", trainer.interviewDate],
+            ["Interview Time", trainer.interviewTime],
+            ["Hired Date", trainer.hiredDate],
+            ["Status", trainer.status]
+        ];
+
+        trainerInformation.forEach(function(item) {
+
+            const detail = document.createElement("p");
+
+            detail.textContent =
+                item[0] + " : " + (item[1] || "-");
+
+            trainerDetails.appendChild(detail);
+        });
+    });
+
+    // Table mein main row aur details row add karna
+    trainersList.appendChild(trainerRow);
+    trainersList.appendChild(detailsRow);
 });

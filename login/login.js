@@ -196,39 +196,55 @@ console.log(loginForm);
 
 
 
-     else if(selectedRole === "trainer"){
-
-   const user = users.find(function(user){
-      return user.email === emailInput.value &&
-      user.password === passwordInput.value &&
-      user.role === "trainer";
-   });
 
 
-   if(user){
-      localStorage.setItem("userLoggedIn", "true");
-      localStorage.setItem("selectedRole", "trainer");
 
-      console.log("Trainer Login Successful!");
-      loginMessage.textContent = "Login Successful!";
+     
+else if (selectedRole === "trainer") {
 
-      setTimeout(function(){
-         loginMessage.textContent = "";
-         window.location.replace("../trainer-dashboard/trainer-dashboard.html");
-      }, 2000);
-   }
+    const trainers =
+        JSON.parse(localStorage.getItem("trainers")) || [];
 
+    const trainer = trainers.find(function(record) {
+        return record.email &&
+            record.email.trim().toLowerCase() ===
+                emailInput.value.trim().toLowerCase() &&
+            record.password === passwordInput.value &&
+            record.status &&
+            record.status.trim().toLowerCase() === "hired";
+    });
 
-   else{
-      console.log("Invalid email or password!");
-      loginMessage.textContent = "Invalid email or password!";
+    if (trainer) {
 
-      setTimeout(function(){
-         loginMessage.textContent = "";
-      }, 2000);
-   }
+        localStorage.setItem("userLoggedIn", "true");
+        localStorage.setItem("selectedRole", "trainer");
+        localStorage.setItem("loggedInTrainerEmail", trainer.email);
+        localStorage.setItem("loggedInTrainerId", trainer.trainerId);
 
+        console.log("Trainer Login Successful!");
+        loginMessage.textContent = "Login Successful!";
+
+        setTimeout(function() {
+            loginMessage.textContent = "";
+
+            window.location.replace(
+                "../trainer-dashboard/trainer-dashboard.html"
+            );
+        }, 2000);
+    }
+
+    else {
+        console.log("Invalid email or password!");
+        loginMessage.textContent = "Invalid email or password!";
+
+        setTimeout(function() {
+            loginMessage.textContent = "";
+        }, 2000);
+    }
 }
+
+
+
 
 
 else if(selectedRole === "client"){
