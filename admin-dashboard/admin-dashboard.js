@@ -46,6 +46,7 @@ const activeClients = document.getElementById("activeClients");
 const pendingRequests = document.getElementById("pendingRequests");
 const expiringMembershipCard = document.getElementById("expiringMemberships");
 const expiredMembershipCard = document.getElementById("expiredMembershipsCount");
+const totalTrainersCard = document.getElementById("totalTrainers");
 let activeClientCount = 0;
 let expiringMembershipCount = 0;
 let expiredMembershipCount = 0;
@@ -561,6 +562,7 @@ pendingClients.forEach(function(client){
         });
 
         admissionDetails.textContent = "";
+        console.log("REVIEW DETAILS CODE RUNNING");
         admissionDetails.style.display = "block";
         reviewButton.classList.add("active");
 
@@ -588,6 +590,11 @@ pendingClients.forEach(function(client){
             ["Medical Condition", client.medicalCondition],
             ["Package", isPersonal ? "Personal Training" : "Group Training"],
             ["Duration & Fee", selectedDuration || "-"],
+            ["Workout Goal", client.workoutGoal || "-"],
+            ["Assigned Trainer", client.selectedTrainerName
+            ? client.selectedTrainerName + " (" + (client.selectedTrainerId || "-") + ")"
+            : "-"],
+            ["Training Time", client.trainingTime || "-"],
             ["Payment Method", client.payment.paymentMethod],
             ["Reference Number", client.payment.referenceNumber || "-"],
             ["Payment Date", client.payment.paymentDate],
@@ -916,6 +923,34 @@ approvedClients.forEach(function(client){
         }
 
         clientDetails.appendChild(DurationFee);
+
+
+
+        
+        // ================= Workout Goal =================
+        const workoutGoal = document.createElement("p");
+        workoutGoal.textContent =
+            "Workout Goal : " + (client.workoutGoal || "-");
+        clientDetails.appendChild(workoutGoal);
+
+
+        // ================= Assigned Trainer =================
+        const assignedTrainer = document.createElement("p");
+        assignedTrainer.textContent =
+            "Assigned Trainer : " +
+            (client.selectedTrainerName
+                ? client.selectedTrainerName +
+                  " (" + (client.selectedTrainerId || "-") + ")"
+                : "-");
+        clientDetails.appendChild(assignedTrainer);
+
+
+        // ================= Training Time =================
+        const trainingTime = document.createElement("p");
+        trainingTime.textContent =
+            "Training Time : " + (client.trainingTime || "-");
+        clientDetails.appendChild(trainingTime);
+
 
 
         // ================= Status =================
@@ -1594,9 +1629,37 @@ hireTrainerButton.addEventListener("click", function() {
 
     // Check whether this application is already hired
 
+    // const existingTrainer = trainers.find(function(record) {
+    //     return record.applicationId === application.applicationId;
+    // });
+
+
+
+
+    
+    // Check whether the same trainer is already hired
+
     const existingTrainer = trainers.find(function(record) {
-        return record.applicationId === application.applicationId;
+        const existingEmail = (record.email || "").trim().toLowerCase();
+        const currentEmail = (application.email || "").trim().toLowerCase();
+
+        const existingCNIC = (record.cnic || "").trim();
+        const currentCNIC = (application.cnic || "").trim();
+
+        return (
+            (currentEmail && existingEmail === currentEmail) ||
+            (currentCNIC && existingCNIC === currentCNIC)
+        );
     });
+
+    if (existingTrainer) {
+        alert("This trainer has already been hired.");
+        return;
+    }
+
+
+
+
 
     if (existingTrainer) {
         alert("This trainer has already been hired.");
@@ -1783,6 +1846,21 @@ const trainersList = document.getElementById("trainersList");
 
 let trainers = JSON.parse(localStorage.getItem("trainers")) || [];
 
+
+const clientsForTrainerCount =
+    JSON.parse(localStorage.getItem("clients")) || [];
+
+
+
+// ================= Total Hired Trainers Count =================
+
+if (totalTrainersCard) {
+    totalTrainersCard.textContent = trainers.filter(function(trainer) {
+        return trainer.status === "Hired";
+    }).length;
+}
+
+
 trainers.forEach(function(trainer) {
 
     // Sirf hired trainers display honge
@@ -1822,16 +1900,38 @@ trainers.forEach(function(trainer) {
     timingsCell.textContent = trainer.workingTime || "-";
     trainerRow.appendChild(timingsCell);
 
+    // // ================= Assigned Clients =================
+    // const assignedClientsCell = document.createElement("td");
+
+    // const assignedClients = Array.isArray(trainer.assignedClients)
+    //     ? trainer.assignedClients
+    //     : [];
+
+    // assignedClientsCell.textContent = assignedClients.length;
+
+    // trainerRow.appendChild(assignedClientsCell);
+
+
+
+
+    
     // ================= Assigned Clients =================
     const assignedClientsCell = document.createElement("td");
 
-    const assignedClients = Array.isArray(trainer.assignedClients)
-        ? trainer.assignedClients
-        : [];
+    const assignedClientsCount = clientsForTrainerCount.filter(
+        function(client) {
+            return client.selectedTrainerId === trainer.trainerId;
+        }
+    ).length;
 
-    assignedClientsCell.textContent = assignedClients.length;
+    assignedClientsCell.textContent = assignedClientsCount;
 
     trainerRow.appendChild(assignedClientsCell);
+
+
+
+
+
 
     // ================= Action =================
     const actionCell = document.createElement("td");
@@ -1928,4 +2028,226 @@ trainers.forEach(function(trainer) {
     // Table mein main row aur details row add karna
     trainersList.appendChild(trainerRow);
     trainersList.appendChild(detailsRow);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== ADMIN CLIENT & TRAINER ATTENDANCE ===== */
+
+function displayAdminAttendance() {
+    const clientList = document.getElementById("adminClientAttendanceList");
+    const trainerList = document.getElementById("adminTrainerAttendanceList");
+
+    if (!clientList || !trainerList) return;
+
+    const clients = JSON.parse(localStorage.getItem("clients") || "[]");
+    const trainers = JSON.parse(localStorage.getItem("trainers") || "[]");
+    const records = JSON.parse(
+        localStorage.getItem("gymAttendanceRecords") || "[]"
+    );
+
+    clientList.innerHTML = "";
+    trainerList.innerHTML = "";
+
+    function createPersonDropdown(person, role) {
+        const personId = role === "Client"
+            ? person.clientId
+            : person.trainerId;
+
+        const personName = role === "Client"
+            ? person.name
+            : person.fullName;
+
+        const personRecords = records
+            .filter(function (record) {
+                return record.role === role &&
+                    (role === "Client"
+                        ? record.clientId === personId
+                        : record.trainerId === personId);
+            })
+            .sort(function (a, b) {
+                return b.date.localeCompare(a.date);
+            });
+
+        const details = document.createElement("details");
+        details.className = "admin-person-attendance";
+
+        const summary = document.createElement("summary");
+
+        const latestRecord = personRecords[0];
+
+        const latestStatus = latestRecord
+            ? latestRecord.status
+            : "No Record";
+
+        summary.textContent =
+            (personName || "Unknown") + " — " +
+            (personId || "No ID") + " — " + latestStatus;
+
+        details.appendChild(summary);
+
+        const history = document.createElement("div");
+        history.className = "admin-person-history";
+
+        if (personRecords.length === 0) {
+            const message = document.createElement("p");
+            message.className = "admin-attendance-empty";
+            message.textContent = "No attendance history found.";
+            history.appendChild(message);
+        } else {
+            const table = document.createElement("table");
+
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+
+            ["Date", "Check-in", "Check-out", "Status"].forEach(
+                function (heading) {
+                    const th = document.createElement("th");
+                    th.textContent = heading;
+                    headerRow.appendChild(th);
+                }
+            );
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+
+            personRecords.forEach(function (record) {
+                const row = document.createElement("tr");
+
+                [
+                    record.date || "-",
+                    record.checkIn || "-",
+                    record.checkOut || "-",
+                    record.status || "-"
+                ].forEach(function (value) {
+                    const td = document.createElement("td");
+                    td.textContent = value;
+                    row.appendChild(td);
+                });
+
+                tbody.appendChild(row);
+            });
+
+            table.appendChild(tbody);
+            history.appendChild(table);
+        }
+
+        details.appendChild(history);
+
+        return details;
+    }
+
+    clients.forEach(function (client) {
+        const dropdown = createPersonDropdown(client, "Client");
+
+        if (dropdown) {
+            clientList.appendChild(dropdown);
+        }
+    });
+
+    trainers.forEach(function (trainer) {
+        const dropdown = createPersonDropdown(trainer, "Trainer");
+
+        if (dropdown) {
+            trainerList.appendChild(dropdown);
+        }
+    });
+
+    if (clients.length === 0) {
+        clientList.innerHTML =
+            '<p class="admin-attendance-empty">No clients found.</p>';
+    }
+
+    if (trainers.length === 0) {
+        trainerList.innerHTML =
+            '<p class="admin-attendance-empty">No trainers found.</p>';
+    }
+}
+
+displayAdminAttendance();
+
+
+
+
+
+// ================= Display Admin Notifications =================
+function displayAdminNotifications() {
+    const notificationList = document.getElementById("notificationList");
+
+    if (!notificationList) return;
+
+    const notifications = JSON.parse(
+        localStorage.getItem("notifications") || "[]"
+    );
+
+    const adminNotifications = notifications.filter(function(notification) {
+        return notification.type === "New Client Assigned";
+    });
+
+    notificationList.innerHTML = "";
+
+    if (adminNotifications.length === 0) {
+        notificationList.textContent = "No new notifications.";
+        return;
+    }
+
+    adminNotifications.forEach(function(notification) {
+        const item = document.createElement("div");
+        item.className = "notification-item";
+
+        const message = document.createElement("p");
+        // message.textContent =
+        //     "New Trainer Assignment: " + notification.message;
+
+
+        const clients = JSON.parse(localStorage.getItem("clients") || "[]");
+const trainers = JSON.parse(localStorage.getItem("trainers") || "[]");
+
+const client = clients.find(function(c) {
+    return c.clientId === notification.clientId;
+});
+
+const trainer = trainers.find(function(t) {
+    return t.trainerId === notification.trainerId;
+});
+
+message.textContent = client && trainer
+    ? "New Trainer Assignment: " + client.name + " assigned to " + trainer.fullName
+    : "New Trainer Assignment: " + notification.message;
+
+        item.appendChild(message);
+        notificationList.appendChild(item);
+    });
+}
+
+displayAdminNotifications();
+
+
+
+
+// Automatically update notifications from other tabs
+window.addEventListener("storage", function(event) {
+    if (event.key === "notifications") {
+        displayAdminNotifications();
+    }
 });

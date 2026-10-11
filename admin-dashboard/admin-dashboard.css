@@ -1363,3 +1363,178 @@ MOBILE
     background-color: #9ca3af;
     cursor: not-allowed;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================
+ADMIN ATTENDANCE BOXES
+================================= */
+
+.attendance-section .attendance-group {
+    background: #171c20;
+    /* border: 1px solid #343d43; */
+     /* border: 1px solid #f39c12; */
+      border: 1px solid rgba(247, 182, 63, 0.5);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.attendance-section .attendance-group > summary {
+    padding: 18px 20px;
+    color: #f39c12;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.attendance-section .attendance-group > summary::-webkit-details-marker {
+    display: none;
+}
+
+.attendance-section .attendance-group > summary::after {
+    content: "+";
+    float: right;
+    font-size: 18px;
+}
+
+.attendance-section .attendance-group[open] > summary::after {
+    content: "−";
+}
+
+.attendance-section .attendance-dropdown-content {
+    padding: 18px 20px;
+    border-top: 1px solid #343d43;
+}
+
+.attendance-section .attendance-dropdown-content h3 {
+    /* color: #f39c12; */
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+/* INDIVIDUAL CLIENT AND TRAINER BOXES */
+
+.attendance-section .admin-person-attendance {
+    background: #171c20;
+    /* border: 1px solid #343d43; */
+     /* border: 1px solid #47443d; */
+      /* border: -1px solid rgb(253, 175, 5); */
+      /* border: 1px solid #fdc324; */
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.attendance-section .admin-person-attendance > summary {
+    padding: 18px 20px;
+    /* color: #f39c12; */
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+}
+
+.attendance-section .admin-person-attendance > summary::-webkit-details-marker {
+    display: none;
+}
+
+.attendance-section .admin-person-attendance > summary::after {
+    content: "+";
+    float: right;
+}
+
+.attendance-section .admin-person-attendance[open] > summary::after {
+    content: "−";
+}
+
+/* ATTENDANCE HISTORY TABLE */
+
+.attendance-section .admin-person-history {
+    padding: 18px 20px;
+    overflow-x: auto;
+    border-top: 1px solid #343d43;
+}
+
+.attendance-section .admin-person-history table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.attendance-section .admin-person-history th,
+.attendance-section .admin-person-history td {
+    padding: 12px;
+    border-bottom: 1px solid #343d43;
+    text-align: left;
+    font-size: 14px;
+}
+
+.attendance-section .admin-person-history th {
+    color: #f39c12;
+    font-weight: 600;
+}
+
+.attendance-section .admin-person-history td {
+    color: #ffffff;
+}
+
+.attendance-section .admin-attendance-empty {
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 0;
+}
+
+@media (max-width: 600px) {
+    .attendance-section .attendance-group > summary,
+    .attendance-section .admin-person-attendance > summary {
+        padding: 16px;
+    }
+
+    .attendance-section .attendance-dropdown-content,
+    .attendance-section .admin-person-history {
+        padding: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -61,14 +61,31 @@ checkStatusForm.addEventListener("submit", function(event) {
     JSON.parse(localStorage.getItem("trainers")) || [];
 
 
+    // // ================= Search Client =================
+
+    // const client = clients.find(function(record) {
+    //     return record.email &&
+    //         record.email.trim().toLowerCase() === email &&
+    //         record.cnic &&
+    //         record.cnic.trim() === cnic;
+    // });
+
+
+
+
+
     // ================= Search Client =================
 
-    const client = clients.find(function(record) {
-        return record.email &&
-            record.email.trim().toLowerCase() === email &&
-            record.cnic &&
-            record.cnic.trim() === cnic;
-    });
+const client = clients.find(function(record) {
+    const savedEmail = String(record.email || "")
+        .trim()
+        .toLowerCase();
+
+    const savedCnic = String(record.cnic || "").trim();
+
+    return savedEmail === email && savedCnic === cnic;
+});
+
 
 
     // ================= Search Trainer Application =================
@@ -114,6 +131,16 @@ const hiredTrainer = trainers.find(function(record) {
 
     
     // ================= Show Client Result =================
+
+
+    console.log("CLIENT FOUND:", client);
+// console.log("CLIENT STATUS:", client.status);
+// console.log(
+//     "NORMALIZED STATUS:",
+//     (client.status || "").trim().toLowerCase()
+// );
+
+    console.log("CLIENT FOUND:", client);
 
     if (client) {
 
@@ -161,73 +188,381 @@ const hiredTrainer = trainers.find(function(record) {
             return;
         }
 
-        // ================= Approved Admission =================
 
-        if (clientStatus === "approved") {
 
-            const message = document.createElement("p");
+// ================= Approved Admission =================
 
-            message.className = "approved-message";
-            message.textContent =
-                "Congratulations! Your admission has been approved. Please select your workout goal to continue.";
+if (clientStatus === "approved") {
 
-            statusResult.appendChild(message);
+    const message = document.createElement("p");
+    message.className = "approved-message";
+    message.textContent =
+        "Congratulations! Your admission has been approved. Please select your workout goal to continue.";
+    statusResult.appendChild(message);
 
-            // Show Previously Selected Package
+    // Show Previously Selected Package
+    if (client.selectedPackage && client.duration && client.fee) {
+        const packageDetails = document.createElement("p");
+        packageDetails.textContent =
+            "Package: " + client.selectedPackage +
+            " | Duration: " + client.duration +
+            " | Fee: " + client.fee;
+        statusResult.appendChild(packageDetails);
+    }
 
-            if (client.selectedPackage && client.duration && client.fee) {
+    // Workout Goal Dropdown
+    const goalLabel = document.createElement("label");
+    goalLabel.htmlFor = "workoutGoal";
+    goalLabel.textContent = "Select Your Workout Goal:";
+    statusResult.appendChild(goalLabel);
 
-                const packageDetails = document.createElement("p");
-                packageDetails.textContent =
-                    "Package: " + client.selectedPackage +
-                    " | Duration: " + client.duration +
-                    " | Fee: " + client.fee;
+    const goalSelect = document.createElement("select");
+    goalSelect.id = "workoutGoal";
 
-                statusResult.appendChild(packageDetails);
-            }
+    const defaultGoal = document.createElement("option");
+    defaultGoal.value = "";
+    defaultGoal.textContent = "Choose your workout goal";
+    goalSelect.appendChild(defaultGoal);
 
-            // Workout Goal Label
+    const workoutGoals = [
+        "General Fitness",
+        "Cardio & Endurance",
+        "Weight Loss & Fat Loss",
+        "Muscle Building & Weight Gain",
+        "Strength & Conditioning",
+        "All-Round Fitness (Multiple Goals)"
+    ];
 
-            const goalLabel = document.createElement("label");
-            goalLabel.htmlFor = "workoutGoal";
-            goalLabel.textContent = "Select Your Workout Goal:";
+    workoutGoals.forEach(function(goal) {
+        const option = document.createElement("option");
+        option.value = goal;
+        option.textContent = goal;
+        goalSelect.appendChild(option);
+    });
 
-            statusResult.appendChild(goalLabel);
+    statusResult.appendChild(goalSelect);
 
-            // Workout Goal Dropdown
+    // Trainer Selection Container
+    const trainerSection = document.createElement("div");
+    trainerSection.style.display = "none";
+    statusResult.appendChild(trainerSection);
 
-            const goalSelect = document.createElement("select");
-            goalSelect.id = "workoutGoal";
+    // Show Hired Trainers After Goal Selection
+    goalSelect.addEventListener("change", function() {
+        trainerSection.innerHTML = "";
+        trainerSection.style.display = "none";
 
-            const defaultOption = document.createElement("option");
-            defaultOption.value = "";
-            defaultOption.textContent = "Choose your workout goal";
+        if (!goalSelect.value) return;
 
-            goalSelect.appendChild(defaultOption);
+        const hiredTrainers = trainers.filter(function(trainer) {
+            return (trainer.status || "").trim().toLowerCase() === "hired";
+        });
 
-            const workoutGoals = [
-                "General Fitness",
-                "Cardio & Endurance",
-                "Weight Loss & Fat Loss",
-                "Muscle Building & Weight Gain",
-                "Strength & Conditioning",
-                "All-Round Fitness (Multiple Goals)"
-            ];
+        const heading = document.createElement("h4");
+        heading.textContent = "Select Your Trainer";
+        trainerSection.appendChild(heading);
 
-            workoutGoals.forEach(function(goal) {
+        if (hiredTrainers.length === 0) {
+            const noTrainer = document.createElement("p");
+            noTrainer.textContent = "No hired trainers are currently available.";
+            trainerSection.appendChild(noTrainer);
+            trainerSection.style.display = "block";
+            return;
+        }
 
-                const option = document.createElement("option");
-                option.value = goal;
-                option.textContent = goal;
+        const trainerLabel = document.createElement("label");
+        trainerLabel.textContent = "Choose Trainer:";
+        trainerSection.appendChild(trainerLabel);
 
-                goalSelect.appendChild(option);
+        const trainerSelect = document.createElement("select");
+
+        const defaultTrainer = document.createElement("option");
+        defaultTrainer.value = "";
+        defaultTrainer.textContent = "Choose a trainer";
+        trainerSelect.appendChild(defaultTrainer);
+
+        hiredTrainers.forEach(function(trainer, index) {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent =
+                (trainer.fullName || "Trainer") +
+                " (" + (trainer.trainerId || "No ID") + ")";
+            trainerSelect.appendChild(option);
+        });
+
+        trainerSection.appendChild(trainerSelect);
+
+        const scheduleSection = document.createElement("div");
+        trainerSection.appendChild(scheduleSection);
+
+        trainerSelect.addEventListener("change", function() {
+            scheduleSection.innerHTML = "";
+
+            if (trainerSelect.value === "") return;
+
+            // const selectedTrainer =
+            //     hiredTrainers[Number(trainerSelect.value)];
+
+            // const days = Array.isArray(selectedTrainer.availableDays)
+            //     ? selectedTrainer.availableDays
+            //     : (selectedTrainer.availableDays || "")
+            //         .split(",")
+            //         .map(function(day) {
+            //             return day.trim();
+            //         })
+            //         .filter(Boolean);
+
+            // const times = Array.isArray(selectedTrainer.workingTime)
+            //     ? selectedTrainer.workingTime
+            //     : (selectedTrainer.workingTime || "")
+            //         .split(",")
+            //         .map(function(time) {
+            //             return time.trim();
+            //         })
+            //         .filter(Boolean);
+
+
+
+
+
+            
+const selectedTrainer =
+    hiredTrainers[Number(trainerSelect.value)];
+
+// const days = [
+//     "Monday",
+//     "Tuesday",
+//     "Wednesday",
+//     "Thursday",
+//     "Friday",
+//     "Saturday",
+//     "Sunday"
+// ];
+
+const times = [
+    "6:00 AM - 8:00 AM",
+    "8:00 AM - 10:00 AM",
+    "10:00 AM - 12:00 PM",
+    "12:00 PM - 2:00 PM",
+    "2:00 PM - 4:00 PM",
+    "4:00 PM - 6:00 PM",
+    "6:00 PM - 8:00 PM",
+    "8:00 PM - 10:00 PM"
+];
+
+
+
+
+
+
+
+const timeLabel = document.createElement("label");
+timeLabel.textContent = "Training Time (2 Hours):";
+scheduleSection.appendChild(timeLabel);
+
+const timeSelect = document.createElement("select");
+
+const defaultTime = document.createElement("option");
+defaultTime.value = "";
+defaultTime.textContent = "Choose a time slot";
+timeSelect.appendChild(defaultTime);
+
+times.forEach(function(time) {
+    const option = document.createElement("option");
+    option.value = time;
+    option.textContent = time;
+    timeSelect.appendChild(option);
+});
+
+scheduleSection.appendChild(timeSelect);
+
+if (times.length === 0) {
+    const warning = document.createElement("p");
+    warning.textContent =
+        "Training time slots are unavailable. Please contact the gym admin.";
+    scheduleSection.appendChild(warning);
+}
+
+const confirmButton = document.createElement("button");
+confirmButton.type = "button";
+confirmButton.textContent = "Confirm Selection";
+scheduleSection.appendChild(confirmButton);
+
+
+
+confirmButton.addEventListener("click", function() {
+    if (!goalSelect.value ||
+        !trainerSelect.value ||
+        !timeSelect.value) {
+        alert("Please select your workout goal, trainer and time.");
+        return;
+    }
+
+
+    // Check Previous Trainer Assignment
+    const previousTrainerId = client.selectedTrainerId || "";
+
+
+
+
+                // // Check Previous Trainer Assignment
+                // const previousTrainerId = client.selectedTrainerId;
+
+
+
+
+
+
+                // Save Client Selections
+                client.workoutGoal = goalSelect.value;
+                // const previousTrainerId = client.selectedTrainerId;
+                client.selectedTrainerId = selectedTrainer.trainerId;
+                client.selectedTrainerName = selectedTrainer.fullName;
+                // client.trainingDay = daySelect.value;
+                client.trainingTime = timeSelect.value;
+
+                // Generate Client ID If Missing
+                if (!client.clientId) {
+                    let newClientId;
+
+                    do {
+                        newClientId = "CL" +
+                            Math.floor(100000 + Math.random() * 900000);
+                    } while (clients.some(function(item) {
+                        return item.clientId === newClientId;
+                    }));
+
+                    client.clientId = newClientId;
+                }
+
+                // Generate Password If Missing
+                if (!client.password) {
+                    client.password =
+                        Math.random().toString(36).slice(2, 6).toUpperCase() +
+                        Math.floor(1000 + Math.random() * 9000);
+                }
+
+
+
+
+                
+                // // New Client Assigned Notification
+                // if (!previousTrainerId) {
+                //     const notifications = JSON.parse(
+                //         localStorage.getItem("notifications") || "[]"
+                //     );
+
+                //     notifications.push({
+                //         clientId: client.clientId,
+                //         trainerId: selectedTrainer.trainerId,
+                //         type: "New Client Assigned",
+                //         message: "A new client has been assigned to you: " + client.name
+                //     });
+
+                //     localStorage.setItem(
+                //         "notifications",
+                //         JSON.stringify(notifications)
+                //     );
+                // }
+
+
+
+
+
+                
+                // // Check Previous Trainer Assignment
+                // const previousTrainerId = client.selectedTrainerId;
+                // // const previousTrainerId = client.selectedTrainerId;
+
+                // // Save Client Selections
+                // client.workoutGoal = goalSelect.value;
+                // client.selectedTrainerId = selectedTrainer.trainerId;
+                // client.selectedTrainerName = selectedTrainer.fullName;
+                // client.trainingTime = timeSelect.value;
+
+                // New Client Assigned Notification
+                if (previousTrainerId !== selectedTrainer.trainerId) {
+                    const notifications = JSON.parse(
+                        localStorage.getItem("notifications") || "[]"
+                    );
+
+                    notifications.push({
+                        clientId: client.clientId || "",
+                        trainerId: selectedTrainer.trainerId,
+                        type: "New Client Assigned",
+                        message: "A new client has been assigned to you: " + client.name
+                    });
+
+                    localStorage.setItem(
+                        "notifications",
+                        JSON.stringify(notifications)
+                    );
+                }
+
+                // Update Existing Client Record
+                localStorage.setItem("clients", JSON.stringify(clients));
+
+
+
+
+
+                // // Update Existing Client Record
+                // localStorage.setItem("clients", JSON.stringify(clients));
+
+                // Show Confirmation and Credentials
+                trainerSection.innerHTML = "";
+
+                const successHeading = document.createElement("h4");
+                successHeading.textContent = "Selection Confirmed";
+                trainerSection.appendChild(successHeading);
+
+                const successMessage = document.createElement("p");
+                successMessage.className = "approved-message";
+                successMessage.textContent =
+                    "Your workout goal and trainer schedule have been saved.";
+                trainerSection.appendChild(successMessage);
+
+                const details = document.createElement("p");
+                details.textContent =
+                    "Workout Goal: " + client.workoutGoal +
+                    " | Trainer: " + client.selectedTrainerName +
+                    " (" + client.selectedTrainerId + ")" +
+                    // " | Day: " + client.trainingDay +
+                    " | Time: " + client.trainingTime;
+                trainerSection.appendChild(details);
+
+                const clientIdDetails = document.createElement("p");
+                clientIdDetails.textContent = "Your Client ID: " + client.clientId;
+                trainerSection.appendChild(clientIdDetails);
+
+                const passwordDetails = document.createElement("p");
+                passwordDetails.textContent =
+                    "Your Initial Password: " + client.password;
+                trainerSection.appendChild(passwordDetails);
+
+                const loginMessage = document.createElement("p");
+                loginMessage.textContent =
+                    "Please save your Client ID and password for login.";
+                trainerSection.appendChild(loginMessage);
             });
+        });
 
-            statusResult.appendChild(goalSelect);
+        trainerSection.style.display = "block";
+    });
+
+            if (clientStatus === "approved") {
+            // Tumhara existing approved admission wala poora code
         }
 
         return;
     }
+
+}
+
+
+
+
+    // }
 
 
 
@@ -377,6 +712,9 @@ if (trainer.status.trim().toLowerCase() === "rejected") {
 
 
     // ================= Record Not Found =================
+
+    console.log("CLIENT:", client);
+console.log("TRAINER:", trainer);
 
      statusResult.style.display = "block";
 

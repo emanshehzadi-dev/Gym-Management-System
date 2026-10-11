@@ -61,7 +61,7 @@
 
                     <div class="overview-card">
                         <h3 class="card-title">Trainer</h3>
-                        <div class="card-value"></div>
+                        <div class="card-value" id="trainerCard"></div>
                     </div>
 
                 </div>
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-
+<!-- 
             <div class="my-training-section" id="my-training">
                 <h2 class="section-title">My Training</h2>
                 <div class="training-card">
@@ -114,10 +114,52 @@
                     <p>Trainer Name</p>
                     <p>Training Time</p>
                 </div>
-            </div>
+            </div> -->
 
 
 
+
+
+            
+<!-- ================= My Training Section ================= -->
+
+<div class="my-training-section" id="my-training">
+
+    <h2 class="section-title">My Training</h2>
+
+    <div class="training-card">
+
+        <div class="training-detail">
+            <h3>Training Mode</h3>
+            <p id="trainingMode">Not Available</p>
+        </div>
+
+        <div class="training-detail">
+            <h3>Trainer Name</h3>
+            <p id="trainingTrainerName">Not Assigned</p>
+        </div>
+
+        <div class="training-detail">
+            <h3>Training Time</h3>
+            <p id="trainingScheduleTime">Not Selected</p>
+        </div>
+
+        <div class="training-detail">
+            <h3>Workout Goal</h3>
+            <p id="trainingWorkoutGoal">Not Selected</p>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+<!-- 
             <div class="attendance-section" id="attendance">
                 <h2 class="section-title">Attendance</h2>
                 <div class="attendance-list">
@@ -129,7 +171,120 @@
                         <p>Attendance Percentage</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+
+
+
+            
+<section class="attendance-section" id="attendance">
+
+    <h1>Client Attendance</h1>
+
+    <p class="description">
+        Biometric Attendance Terminal
+    </p>
+
+    <div class="attendance-terminal">
+
+        <div class="fingerprint-icon">🖐️</div>
+
+        <h2>Scan Your Thumb</h2>
+
+        <p id="scanStatus">
+            Place your thumb on the scanner to mark attendance.
+        </p>
+
+        <p class="client-name">
+            Client: <strong id="attendanceClientName">Loading...</strong>
+        </p>
+
+        <button type="button" id="scanButton">
+            Scan Thumb
+        </button>
+
+    </div>
+
+    <div class="attendance-records">
+
+        <h2>My Attendance History</h2>
+
+        <!-- <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="attendanceTable"></tbody>
+            </table>
+        </div> -->
+
+
+
+        
+<div class="attendance-records">
+
+    <h2>Recent Attendance</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="attendanceTable"></tbody>
+        </table>
+    </div>
+
+    <details class="attendance-history-dropdown">
+        <summary>View Older Attendance History</summary>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="olderAttendanceTable"></tbody>
+            </table>
+        </div>
+
+        <p id="noOlderRecord">No older attendance records.</p>
+    </details>
+
+    <p id="noRecord">No recent attendance records found.</p>
+
+</div>
+
+
+
+
+
+        <p id="noRecord">No attendance record found.</p>
+
+    </div>
+
+</section>
+
+
+<!-- 
+
 
             <div class="gym-facilities-section" id="gym-facilities">
                 <h2 class="section-title">Gym Facilities</h2>
@@ -164,7 +319,53 @@
                         <p>Kitchen / Coffee Area</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+
+
+
+<div class="gym-facilities-section" id="gym-facilities">
+
+    <h2 class="section-title">Gym Facilities</h2>
+
+    <div class="facilities-list">
+
+        <div class="facility-item">
+            <span class="facility-icon">🏋️</span>
+            <p>Gym Equipment</p>
+        </div>
+
+        <div class="facility-item">
+            <span class="facility-icon">🏃</span>
+            <p>Cardio Area</p>
+        </div>
+
+        <div class="facility-item">
+            <span class="facility-icon">💪</span>
+            <p>Weight Training Area</p>
+        </div>
+
+        <div class="facility-item">
+            <span class="facility-icon">🚿</span>
+            <p>Changing Room</p>
+        </div>
+
+        <div class="facility-item">
+            <span class="facility-icon">🥤</span>
+            <p>Refreshment</p>
+        </div>
+
+        <div class="facility-item">
+            <span class="facility-icon">☕</span>
+            <p>Kitchen / Coffee Area</p>
+        </div>
+
+    </div>
+
+</div>
+
+
 
 
             <div class="notification-section" id="notifications">

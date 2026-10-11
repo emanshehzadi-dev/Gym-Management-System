@@ -68,7 +68,7 @@
 
                     <div class="overview-card">
                         <h3 class="card-title">Total Trainers</h3>
-                        <div class="total-value">0</div>
+                        <div class="total-value" id="totalTrainers">0</div>
                     </div>
 
                     
@@ -84,7 +84,7 @@
 
                 </div>
             </div>
-            
+<!--             
             <div class="recent-notifications">
                 <h2 class="section-title">Recent Notifications</h2>
                  <div id="recentNotificationsList"></div>
@@ -92,7 +92,7 @@
                 <div class="notification-item">Membership Expiring Soon</div>
                 <div class="notification-item">New Trainer Assignment</div>
                 <div class="notification-item">Training Schedule Updated</div> 
-            </div>
+            </div> -->
 
             
 
@@ -342,28 +342,56 @@
                 
 
 
-           <div class="attendance-section" id="attendance">
 
-    <h2 class="section-title">Attendance</h2>
 
-    <div class="attendance-table-container">
-        <table class="attendance-table">
-            <thead>
-                <tr>
-                    <th>Client ID</th>
-                    <th>Client Name</th>
-                    <th>Date</th>
-                    <th>Training Time</th>
-                    <th>Attendance Status</th>
-                </tr>
-            </thead>
+<!-- ===== ADMIN ATTENDANCE SECTION ===== -->
 
-            <tbody id="attendanceList">
-            </tbody>
-        </table>
-    </div>
+<div class="attendance-section" id="attendance">
+
+    <h2 class="section-title">Attendance Management</h2>
+
+    <!-- CLIENT ATTENDANCE MAIN DROPDOWN -->
+    <details class="attendance-group">
+
+        <summary>Client Attendance</summary>
+
+        <div class="attendance-dropdown-content">
+
+            <h3>Select Client</h3>
+
+            <div id="adminClientAttendanceList">
+                <!-- Client dropdowns JavaScript se aayenge -->
+            </div>
+
+        </div>
+
+    </details>
+
+
+    <!-- TRAINER ATTENDANCE MAIN DROPDOWN -->
+    <details class="attendance-group">
+
+        <summary>Trainer Attendance</summary>
+
+        <div class="attendance-dropdown-content">
+
+            <h3>Select Trainer</h3>
+
+            <div id="adminTrainerAttendanceList">
+                <!-- Trainer dropdowns JavaScript se aayenge -->
+            </div>
+
+        </div>
+
+    </details>
 
 </div>
+
+
+
+
+
+<!-- 
 
             <div class="notification-section" id="notifications">
                 <h2 class="section-title">Notifications</h2>
@@ -386,7 +414,22 @@
                         <p>Training Schedule Updated</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+
+
+<div class="notification-section" id="notifications">
+    <h2 class="section-title">Notifications</h2>
+
+    <div class="notification-list" id="notificationList">
+        <p class="no-notifications">No new notifications.</p>
+    </div>
+</div>
+
+
+
+
         </div> 
     </div>
 <script src="admin-dashboard.js"></script>

@@ -31,17 +31,24 @@
                     <ul>
 
                         <!-- My Profile at Top -->
-                        <li>
-                            <a href="#my-profile">
-                                <i class="fa-solid fa-id-card fa-beat-fade"></i>
-                                My Profile
-                            </a>
-                        </li>
 
+
+                        
                         <li>
                             <a href="#dashboard">
                                 <i class="fa-solid fa-chart-bar fa-beat"></i>
                                 Dashboard
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li>
+                            <a href="#my-profile">
+                                <i class="fa-solid fa-id-card fa-beat-fade"></i>
+                                My Profile
                             </a>
                         </li>
 
@@ -101,6 +108,7 @@
 
                 <h2 class="dashboard-title">Trainer Dashboard</h2>
 
+                <h2 class="trainer-welcome"> Hello <span id="loggedInTrainerName">Trainer</span>! 😊</h2>
                 <button class="theme-toggle">🌙</button>
 
             </div>
@@ -119,52 +127,52 @@
                             Total Assigned Clients
                         </h3>
 
-                        <div class="total-value"></div>
+                        <div class="total-value" id="totalAssignedClients">0</div>
 
                     </div>
 
 
-                    <!-- TODAY'S TRAINING -->
+                     <!-- TODAY'S TRAINING  -->
                     <div class="overview-card">
 
                         <h3 class="card-title">
                             Today's Training Sessions
                         </h3>
 
-                        <div class="total-value"></div>
+                        <div class="total-value">0</div>
 
                     </div>
 
 
-                    <!-- UPCOMING SESSIONS -->
+                     <!-- UPCOMING SESSIONS  -->
                     <div class="overview-card">
 
                         <h3 class="card-title">
                             Upcoming Sessions
                         </h3>
 
-                        <div class="total-value"></div>
+                        <div class="total-value">0</div>
 
                     </div>
 
 
-                    <!-- AVAILABLE SLOTS -->
+                     <!-- AVAILABLE SLOTS  -->
                     <div class="overview-card">
 
                         <h3 class="card-title">
                             Available Time Slots
                         </h3>
 
-                        <div class="total-value"></div>
+                        <div class="total-value" id="availableTimeSlots">8</div>
 
                     </div>
 
                 </div>
 
-            </div>
+            </div> 
 
-
-            <!-- MY CLIENTS -->
+<!-- 
+             MY CLIENTS 
             <div class="my-clients-section" id="my-clients">
 
                 <h2 class="section-title">My Clients</h2>
@@ -190,7 +198,7 @@
 
                         <tbody id="clientsTableBody">
 
-                            <!-- Client records will be added here -->
+                             Client records will be added here
 
                         </tbody>
 
@@ -198,46 +206,153 @@
 
                 </div>
 
+            </div> -->
+
+
+
+
+
+
+
+
+        
+<!-- MY CLIENTS SECTION -->
+<section class="my-clients-section content-section" id="my-clients">
+
+    <div class="section-header">
+        <h2 class="section-title">My Clients</h2>
+        <p>View clients assigned to you for training.</p>
+    </div>
+
+    <div class="clients-table-container">
+
+        <table class="clients-table">
+
+            <thead>
+                <tr>
+                    <th>Client ID</th>
+                    <th>Client Name</th>
+                    <th>Package</th>
+                    <th>Activity</th>
+                    <!-- <th>Training Day</th> -->
+                    <th>Training Time</th>
+                    <!-- <th>Membership Status</th> -->
+                </tr>
+            </thead>
+
+            <tbody id="clientsTableBody">
+                <!-- Assigned clients will appear here through JavaScript -->
+            </tbody>
+
+        </table>
+
+        <p id="noClientsMessage" style="display: none;">
+            No clients have been assigned to you yet.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+        
+<section class="trainer-attendance-section" id="attendance">
+
+    <h1>Trainer Attendance</h1>
+
+    <p class="description">
+        Biometric Attendance Terminal
+    </p>
+
+    <div class="attendance-terminal">
+
+        <div class="fingerprint-icon">🖐️</div>
+
+        <h2>Scan Your Thumb</h2>
+
+        <p id="trainerScanStatus">
+            Place your thumb on the scanner to mark attendance.
+        </p>
+
+        <p class="trainer-name">
+            Trainer: <strong id="attendanceTrainerName">Loading...</strong>
+        </p>
+
+        <p class="trainer-id">
+            Trainer ID: <strong id="attendanceTrainerId">Loading...</strong>
+        </p>
+
+        <button type="button" id="trainerScanButton">
+            Scan Thumb
+        </button>
+
+    </div>
+
+    <div class="attendance-records">
+
+        <h2>My Attendance History</h2>
+
+        <div class="attendance-records">
+
+            <h2>Recent Attendance</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Check-in</th>
+                            <th>Check-out</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="trainerAttendanceTable"></tbody>
+                </table>
             </div>
 
+            <details class="attendance-history-dropdown">
+                <summary>View Older Attendance History</summary>
 
-            <!-- ATTENDANCE -->
-            <div class="attendance-section" id="attendance">
-
-                <h2 class="section-title">Attendance</h2>
-
-                <div class="attendance-table-container">
-
-                    <table class="attendance-table">
-
+                <div class="table-container">
+                    <table>
                         <thead>
-
                             <tr>
-                                <th>Client ID</th>
-                                <th>Client Name</th>
                                 <th>Date</th>
-                                <th>Training Time</th>
-                                <th>Attendance Status</th>
-                                <th>Action</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Status</th>
                             </tr>
-
                         </thead>
 
-
-                        <tbody id="attendanceTableBody">
-
-                            <!-- Attendance records will be added here -->
-
-                        </tbody>
-
+                        <tbody id="olderTrainerAttendanceTable"></tbody>
                     </table>
-
                 </div>
 
-            </div>
+                <p id="noOlderTrainerRecord">
+                    No older attendance records.
+                </p>
+            </details>
+
+            <p id="noTrainerAttendanceRecord">
+                No recent attendance records found.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-            <!-- TRAINING SCHEDULE -->
+
+
+
+<!-- 
+             TRAINING SCHEDULE 
             <div class="training-schedule-section" id="training-schedule">
 
                 <h2 class="section-title">Training Schedule</h2>
@@ -263,7 +378,7 @@
 
                         <tbody id="scheduleTableBody">
 
-                            <!-- Schedule records will be added here -->
+                            Schedule records will be added here 
 
                         </tbody>
 
@@ -274,27 +389,119 @@
             </div>
 
 
-            <!-- MY PROFILE -->
-            <div class="my-profile-section" id="my-profile">
-
-                <h2 class="section-title">My Profile</h2>
-
-                <div class="profile-card">
-
-                    <p>Trainer Name</p>
-                    <p>Phone Number</p>
-                    <p>Email</p>
-                    <p>Experience</p>
-                    <p>Specialization</p>
-                    <p>Available Days</p>
-                    <p>Available Timings</p>
-
-                </div>
-
-            </div>
 
 
-            <!-- NOTIFICATIONS -->
+ -->
+
+
+
+
+
+
+
+ 
+<!-- TRAINING SCHEDULE -->
+<div class="training-schedule-section" id="training-schedule">
+
+    <h2 class="section-title">Training Schedule</h2>
+
+    <div class="schedule-table-container">
+
+        <table class="schedule-table">
+
+            <thead>
+                <tr>
+                    <th>Client ID</th>
+                    <th>Client Name</th>
+                    <th>Activity</th>
+                    <!-- <th>Training Day</th> -->
+                    <th>Training Time</th>
+                    <th>Package</th>
+                    <!-- <th>Session Status</th> -->
+                </tr>
+            </thead>
+
+            <tbody id="scheduleTableBody">
+                <!-- Schedule records will be added here -->
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+        
+
+
+
+<!-- My Profile Section -->
+<section id="my-profile" class="content-section">
+
+    <div class="section-header">
+        <h2>My Profile</h2>
+        <p>View your trainer information</p>
+    </div>
+
+    <div class="profile-card">
+
+        <p>Trainer ID: <span id="trainerProfileId">-</span></p>
+
+        <p>Full Name: <span id="trainerProfileName">-</span></p>
+
+        <p>Father Name: <span id="trainerProfileFatherName">-</span></p>
+
+        <p>CNIC: <span id="trainerProfileCnic">-</span></p>
+
+        <p>Gender: <span id="trainerProfileGender">-</span></p>
+
+        <p>Date of Birth: <span id="trainerProfileDob">-</span></p>
+
+        <p>Phone Number: <span id="trainerProfilePhone">-</span></p>
+
+        <p>Email: <span id="trainerProfileEmail">-</span></p>
+
+        <p>Address: <span id="trainerProfileAddress">-</span></p>
+
+        <p>Specialization: <span id="trainerProfileSpecialization">-</span></p>
+
+        <p>Experience: <span id="trainerProfileExperience">-</span></p>
+
+        <p>Qualification: <span id="trainerProfileQualification">-</span></p>
+
+        <p>Previous Organization: <span id="trainerProfileOrganization">-</span></p>
+
+        <p>Professional Summary: <span id="trainerProfileSummary">-</span></p>
+
+        <p>Available Days: <span id="trainerProfileDays">-</span></p>
+
+        <p>Preferred Working Time: <span id="trainerProfileTimings">-</span></p>
+
+        <p>Application Date: <span id="trainerProfileApplicationDate">-</span></p>
+
+        <p>Interview Date: <span id="trainerProfileInterviewDate">-</span></p>
+
+        <p>Interview Time: <span id="trainerProfileInterviewTime">-</span></p>
+
+        <p>Hired Date: <span id="trainerProfileHiredDate">-</span></p>
+
+        <p>Status: <span id="trainerProfileStatus">-</span></p>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+             <!-- NOTIFICATIONS  -->
             <div class="notification-section" id="notifications">
 
                 <h2 class="section-title">Notifications</h2>
@@ -311,7 +518,7 @@
                         <p>Training Schedule Updated</p>
                     </div>
 
-
+<!-- 
                     <div class="notification-item">
                         <p>Session Reminder</p>
                     </div>
@@ -319,17 +526,19 @@
 
                     <div class="notification-item">
                         <p>Client Training Time Changed</p>
-                    </div>
+                    </div> -->
 
 
                 </div>
 
-            </div>
+            </div>  
 
 
         </div>
 
     </div>
+     
+    <script src="trainer-dashboard.js"></script>
 
 </body>
 

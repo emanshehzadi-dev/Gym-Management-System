@@ -301,10 +301,19 @@ body {
 }
 
 .profile-card p {
-    margin-bottom: 12px;
-    color: #c9d0d5;
-    font-size: 14px;
+    margin-bottom: 8px;
+    /* color: #c9d0d5; */
+    color: #ffffff;
+    font-size: 15px;
 }
+
+/* 
+.profile-card p:hover{
+    color: #ffffff;
+} */
+
+
+
 
 .profile-card p:last-child {
     margin-bottom: 0;
@@ -449,3 +458,266 @@ body {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== TRAINER ATTENDANCE TERMINAL ===== */
+
+.trainer-attendance-section,
+.trainer-attendance-section * {
+    box-sizing: border-box;
+}
+
+.trainer-attendance-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+    color: #f5f5f5;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+.trainer-attendance-section h1 {
+    margin-bottom: 6px;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.trainer-attendance-section .description {
+    margin-bottom: 25px;
+    color: #b9c0c5;
+    font-size: 14px;
+}
+
+.trainer-attendance-section .attendance-terminal,
+.trainer-attendance-section .attendance-records {
+    background: #171c20;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 12px;
+    border: 1px solid #343d43;
+}
+
+.trainer-attendance-section .attendance-terminal {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.trainer-attendance-section .fingerprint-icon {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f39c12;
+    border-radius: 50%;
+    font-size: 45px;
+}
+
+.trainer-attendance-section .attendance-terminal h2,
+.trainer-attendance-section .attendance-records h2 {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.trainer-attendance-section #trainerScanStatus {
+    min-height: 24px;
+    color: #c9cdd0;
+    font-size: 14px;
+}
+
+.trainer-attendance-section .trainer-name,
+.trainer-attendance-section .trainer-id {
+    margin-top: 15px;
+    color: #d5d9dc;
+    font-size: 14px;
+}
+
+.trainer-attendance-section .trainer-name strong,
+.trainer-attendance-section .trainer-id strong {
+    color: #f39c12;
+}
+
+.trainer-attendance-section #trainerScanButton {
+    width: 100%;
+    padding: 13px;
+    margin-top: 18px;
+    background: #f39c12;
+    color: #111518;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.trainer-attendance-section #trainerScanButton:hover:not(:disabled) {
+    background: #ffb52e;
+}
+
+.trainer-attendance-section #trainerScanButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.trainer-attendance-section .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.trainer-attendance-section table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    margin-top: 18px;
+}
+
+.trainer-attendance-section th,
+.trainer-attendance-section td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #343d43;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.trainer-attendance-section th {
+    background: #22292e;
+    color: #f39c12;
+    font-weight: 600;
+}
+
+.trainer-attendance-section td {
+    color: #e5e7e9;
+}
+
+.trainer-attendance-section #noTrainerAttendanceRecord,
+.trainer-attendance-section #noOlderTrainerRecord {
+    color: #b9c0c5;
+    font-size: 14px;
+    margin-top: 18px;
+}
+
+/* Attendance Status Badges */
+
+.trainer-attendance-section .status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.trainer-attendance-section .status-present {
+    background: #163d2b;
+    color: #5ce0a0;
+    border: 1px solid #287c50;
+}
+
+.trainer-attendance-section .status-absent {
+    background: #481f23;
+    color: #ff858b;
+    border: 1px solid #96383e;
+}
+
+.trainer-attendance-section .status-pending {
+    background: #493719;
+    color: #ffd16a;
+    border: 1px solid #8a6828;
+}
+
+/* Older Attendance Dropdown */
+
+.trainer-attendance-section .attendance-history-dropdown {
+    margin-top: 20px;
+    border: 1px solid #343d43;
+    border-radius: 8px;
+    background: #20272c;
+}
+
+.trainer-attendance-section .attendance-history-dropdown summary {
+    padding: 15px;
+    color: #f39c12;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.trainer-attendance-section .attendance-history-dropdown summary:hover {
+    background: #293137;
+}
+
+.trainer-attendance-section .attendance-history-dropdown .table-container {
+    padding: 0 12px 12px;
+}
+
+.trainer-attendance-section #noOlderTrainerRecord {
+    padding: 0 15px 15px;
+    color: #b9c0c5;
+    font-size: 13px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+    .trainer-attendance-section {
+        padding: 12px;
+    }
+
+    .trainer-attendance-section .attendance-terminal,
+    .trainer-attendance-section .attendance-records {
+        padding: 16px;
+    }
+
+    .trainer-attendance-section h1 {
+        font-size: 23px;
+    }
+}
+
+
+
+
+.trainer-welcome {
+    /* display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #f5f5f5;  */
+
+
+    margin-top: 12px;
+    color: #ffffff;
+    font-size: 17px;
+  
+}
+
+    
+
+
+
