@@ -1053,3 +1053,155 @@ MOBILE
     color: #b9c0c5;
     font-size: 13px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==============================
+   CLIENT DASHBOARD LIGHT THEME
+================================= */
+
+body.light-theme {
+    background: #f5f5f5;
+    color: #222222;
+}
+
+body.light-theme .sidebar,
+body.light-theme .theme-toggle,
+body.light-theme .overview-card,
+body.light-theme .profile-card,
+body.light-theme .membership-card,
+body.light-theme .my-training-section .training-card,
+body.light-theme .attendance-card,
+body.light-theme .facility-item,
+body.light-theme .notification-item,
+body.light-theme .attendance-terminal,
+body.light-theme .attendance-records {
+    background: #ffffff;
+}
+
+/* Nested training and facilities cards */
+body.light-theme .my-training-section .training-detail {
+    background: #f1f1f1;
+}
+
+body.light-theme .facility-item:hover {
+    background: #f1f1f1;
+}
+
+/* Main headings */
+body.light-theme .dashboard-title,
+body.light-theme #clientWelcome,
+body.light-theme .section-title,
+body.light-theme .my-training-section .section-title,
+body.light-theme .gym-facilities-section .section-title,
+body.light-theme .attendance-section h1,
+body.light-theme .attendance-terminal h2,
+body.light-theme .attendance-records h2 {
+    color: #222222;
+}
+
+/* Sidebar text */
+body.light-theme .sidebar-nav a,
+body.light-theme .logout-link {
+    color: #444444;
+}
+
+/* Card and section text */
+body.light-theme .card-title,
+body.light-theme .profile-card p,
+body.light-theme .membership-card p,
+body.light-theme .training-card p,
+body.light-theme .attendance-card p,
+body.light-theme .my-training-section .training-detail h3,
+body.light-theme .my-training-section .training-detail p,
+body.light-theme .facility-item p,
+body.light-theme .notification-item p {
+    color: #333333;
+}
+
+/* Keep orange accents */
+body.light-theme .sidebar-header,
+body.light-theme .card-value,
+body.light-theme .total-value,
+body.light-theme .attendance-section .client-name strong,
+body.light-theme .attendance-section .fingerprint-icon,
+body.light-theme .attendance-history-dropdown summary {
+    color: #FFA500;
+}
+
+/* Attendance terminal text */
+body.light-theme .attendance-section {
+    color: #222222;
+}
+
+body.light-theme .attendance-section h1,
+body.light-theme .attendance-section .client-name,
+body.light-theme .attendance-section .description,
+body.light-theme .attendance-section #scanStatus,
+body.light-theme .attendance-section #noRecord,
+body.light-theme #noOlderRecord {
+    color: #444444;
+}
+
+body.light-theme .attendance-section .attendance-terminal,
+body.light-theme .attendance-section .attendance-records,
+body.light-theme .attendance-history-dropdown {
+    background: #ffffff;
+    border-color: #dddddd;
+}
+
+body.light-theme .attendance-section th {
+    background: #eeeeee;
+    color: #b87500;
+}
+
+body.light-theme .attendance-section td {
+    color: #333333;
+    border-color: #dddddd;
+}
+
+body.light-theme .attendance-history-dropdown {
+    background: #ffffff;
+}
+
+body.light-theme .attendance-history-dropdown summary:hover {
+    background: #f1f1f1;
+}
+
+/* Sidebar separators and training details */
+body.light-theme .sidebar-header,
+body.light-theme .sidebar-footer {
+    border-color: #dddddd;
+}
+
+body.light-theme .my-training-section .training-card {
+    border-color: #dddddd;
+}
+
+/* Theme toggle */
+body.light-theme .theme-toggle {
+    color: #222222;
+}

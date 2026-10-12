@@ -721,3 +721,145 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+/* =========================================
+   TRAINER DASHBOARD LIGHT THEME
+========================================= */
+
+body.light-theme {
+    background: #f5f5f5;
+    color: #222222;
+}
+
+/* Sidebar and main cards */
+body.light-theme .sidebar,
+body.light-theme .theme-toggle,
+body.light-theme .overview-card,
+body.light-theme .clients-table-container,
+body.light-theme .attendance-table-container,
+body.light-theme .schedule-table-container,
+body.light-theme .profile-card,
+body.light-theme .notification-item {
+    background: #ffffff;
+}
+
+/* Sidebar text */
+body.light-theme .sidebar-nav a,
+body.light-theme .logout-link {
+    color: #444444;
+}
+
+/* Main headings */
+body.light-theme .dashboard-title,
+body.light-theme .section-title,
+body.light-theme .trainer-welcome {
+    color: #222222;
+}
+
+/* Overview cards */
+body.light-theme .card-title {
+    color: #555555;
+}
+
+body.light-theme .total-value {
+    color: #b87500;
+}
+
+/* Tables */
+body.light-theme .clients-table td,
+body.light-theme .attendance-table td,
+body.light-theme .schedule-table td {
+    color: #333333;
+    border-bottom-color: #dddddd;
+}
+
+body.light-theme .clients-table th,
+body.light-theme .attendance-table th,
+body.light-theme .schedule-table th {
+    color: #b87500;
+    border-bottom-color: #dddddd;
+}
+
+/* Profile and notifications */
+body.light-theme .profile-card p,
+body.light-theme .notification-item p {
+    color: #333333;
+}
+
+/* Attendance terminal */
+body.light-theme .trainer-attendance-section {
+    color: #222222;
+}
+
+body.light-theme .trainer-attendance-section h1,
+body.light-theme .trainer-attendance-section .attendance-terminal h2,
+body.light-theme .trainer-attendance-section .attendance-records h2 {
+    color: #222222;
+}
+
+body.light-theme .trainer-attendance-section .description,
+body.light-theme .trainer-attendance-section #trainerScanStatus,
+body.light-theme .trainer-attendance-section .trainer-name,
+body.light-theme .trainer-attendance-section .trainer-id,
+body.light-theme .trainer-attendance-section td {
+    color: #444444;
+}
+
+body.light-theme .trainer-attendance-section .attendance-terminal,
+body.light-theme .trainer-attendance-section .attendance-records {
+    background: #ffffff;
+    border-color: #dddddd;
+}
+
+body.light-theme .trainer-attendance-section th {
+    background: #eeeeee;
+    color: #b87500;
+}
+
+body.light-theme .trainer-attendance-section th,
+body.light-theme .trainer-attendance-section td {
+    border-bottom-color: #dddddd;
+}
+
+body.light-theme .trainer-attendance-section .attendance-history-dropdown {
+    background: #ffffff;
+    border-color: #dddddd;
+}
+
+body.light-theme .trainer-attendance-section .attendance-history-dropdown summary:hover {
+    background: #f1f1f1;
+}
+
+body.light-theme .trainer-attendance-section #noTrainerAttendanceRecord,
+body.light-theme .trainer-attendance-section #noOlderTrainerRecord {
+    color: #555555;
+}
+
+/* Keep orange accents */
+body.light-theme .sidebar-title,
+body.light-theme .total-value,
+body.light-theme .trainer-attendance-section .trainer-name strong,
+body.light-theme .trainer-attendance-section .trainer-id strong,
+body.light-theme .trainer-attendance-section .attendance-history-dropdown summary {
+    color: #b87500;
+}
+
+/* Borders and theme button */
+body.light-theme .sidebar-header,
+body.light-theme .sidebar-footer {
+    border-color: #dddddd;
+}
+
+body.light-theme .theme-toggle {
+    color: #222222;
+}
+
+/* Keep attendance status badge colors unchanged */

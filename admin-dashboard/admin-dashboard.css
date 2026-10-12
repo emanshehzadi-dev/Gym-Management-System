@@ -220,6 +220,22 @@ DASHBOARD HEADER
 } 
 
 
+
+
+
+
+
+
+/* Light Theme */
+/* body.light-theme {
+    background: #f5f5f5;
+    color: #222222;
+}  */
+
+
+
+
+
 /* ============================== 
 OVERVIEW SECTION 
 ================================= */ 
@@ -1530,6 +1546,133 @@ ADMIN ATTENDANCE BOXES
 
 
 
+
+
+
+
+
+
+
+
+/* ==============================
+   ADMIN DASHBOARD LIGHT THEME
+================================= */
+
+body.light-theme {
+    background: #f5f5f5;
+    color: #222222;
+}
+
+/* Sidebar */
+body.light-theme .sidebar,
+body.light-theme .overview-card,
+body.light-theme .notification-item,
+body.light-theme .admission-table-container,
+body.light-theme .trainers-table-container,
+body.light-theme .active-membership-table-container,
+body.light-theme .expiring-membership-table-container,
+body.light-theme .expired-membership-table-container,
+body.light-theme .attendance-table-container,
+body.light-theme .clients-table-container,
+body.light-theme .trainer-applications-table-container,
+body.light-theme .attendance-section .attendance-group,
+body.light-theme .attendance-section .admin-person-attendance,
+body.light-theme .interview-schedule-column input,
+body.light-theme .theme-toggle {
+    background: #ffffff;
+}
+
+/* Main headings and general text */
+body.light-theme .dashboard-title,
+body.light-theme .section-title,
+body.light-theme .memberships,
+body.light-theme .interview-schedule-column label,
+body.light-theme .admission-table td,
+body.light-theme .trainers-table td,
+body.light-theme .active-membership-table td,
+body.light-theme .expiring-membership-table td,
+body.light-theme .expired-membership-table td,
+body.light-theme .attendance-table td,
+body.light-theme .clients-table td,
+body.light-theme .trainer-applications-table td,
+body.light-theme .attendance-section .admin-person-history td,
+body.light-theme .attendance-section .admin-person-attendance > summary,
+body.light-theme .admission-details p {
+    color: #222222;
+}
+
+/* Sidebar links and card descriptions */
+body.light-theme .sidebar-nav a,
+body.light-theme .logout-link,
+body.light-theme .card-title,
+body.light-theme .notification-item p {
+    color: #444444;
+}
+
+/* Keep orange accents unchanged */
+body.light-theme .sidebar-title,
+body.light-theme .total-value,
+body.light-theme .admission-table th,
+body.light-theme .trainers-table th,
+body.light-theme .active-membership-table th,
+body.light-theme .expiring-membership-table th,
+body.light-theme .expired-membership-table th,
+body.light-theme .attendance-table th,
+body.light-theme .clients-table th,
+body.light-theme .trainer-applications-table th,
+body.light-theme .section-title,
+body.light-theme .admission-details h3,
+body.light-theme .attendance-section .attendance-group > summary,
+body.light-theme .attendance-section .admin-person-history th {
+    color: #FFA500;
+}
+
+/* Interview form */
+body.light-theme .interview-schedule-column {
+    background: #ffffff;
+}
+
+body.light-theme .interview-schedule-column input {
+    color: #222222;
+    border-color: #d0d0d0;
+}
+
+body.light-theme .interview-schedule-column input::placeholder {
+    color: #777777;
+}
+
+/* Borders and separators */
+body.light-theme .sidebar-header,
+body.light-theme .sidebar-footer {
+    border-color: #dddddd;
+}
+
+body.light-theme .admission-table td,
+body.light-theme .trainers-table td,
+body.light-theme .active-membership-table td,
+body.light-theme .expiring-membership-table td,
+body.light-theme .expired-membership-table td,
+body.light-theme .attendance-table td,
+body.light-theme .clients-table td,
+body.light-theme .trainer-applications-table td,
+body.light-theme .attendance-section .attendance-dropdown-content,
+body.light-theme .attendance-section .admin-person-history,
+body.light-theme .attendance-section .admin-person-history th,
+body.light-theme .attendance-section .admin-person-history td {
+    border-color: #e0e0e0;
+}
+
+/* Dark buttons become light in light theme */
+body.light-theme .cancel-interview-btn,
+body.light-theme .reject-application-btn,
+body.light-theme .reject-btn {
+    background: #f1f1f1;
+    color: #222222;
+}
+
+body.light-theme .theme-toggle {
+    color: #222222;
+}
 
 
 

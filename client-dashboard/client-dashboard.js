@@ -497,3 +497,47 @@ if (scanButton) {
 }
 
 displayAttendance();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const themeToggle = document.querySelector(".theme-toggle");
+
+// Saved theme load karo
+const savedTheme = localStorage.getItem("clientDashboardTheme");
+
+if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+    themeToggle.textContent = "☀️";
+}
+
+// Button click par theme switch karo
+themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("light-theme");
+
+    if (document.body.classList.contains("light-theme")) {
+        themeToggle.textContent = "☀️";
+        localStorage.setItem("clientDashboardTheme", "light");
+    } else {
+        themeToggle.textContent = "🌙";
+        localStorage.setItem("clientDashboardTheme", "dark");
+    }
+});

@@ -2251,3 +2251,43 @@ window.addEventListener("storage", function(event) {
         displayAdminNotifications();
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const themeToggle = document.querySelector(".theme-toggle");
+
+// Pehle se saved theme ko load karo
+const savedTheme = localStorage.getItem("adminDashboardTheme");
+
+if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+    themeToggle.textContent = "☀️";
+}
+
+// Button click par theme change karo
+themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("light-theme");
+
+    if (document.body.classList.contains("light-theme")) {
+        themeToggle.textContent = "☀️";
+        localStorage.setItem("adminDashboardTheme", "light");
+    } else {
+        themeToggle.textContent = "🌙";
+        localStorage.setItem("adminDashboardTheme", "dark");
+    }
+});

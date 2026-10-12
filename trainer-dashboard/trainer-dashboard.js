@@ -659,3 +659,47 @@ if (logoutLink) {
     });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TRAINER DASHBOARD THEME TOGGLE
+
+const themeToggle = document.querySelector(".theme-toggle");
+
+// Saved theme load karo
+const savedTheme = localStorage.getItem("trainerDashboardTheme");
+
+if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+    themeToggle.textContent = "☀️";
+}
+
+// Button click par theme change karo
+themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("light-theme");
+
+    if (document.body.classList.contains("light-theme")) {
+        themeToggle.textContent = "☀️";
+        localStorage.setItem("trainerDashboardTheme", "light");
+    } else {
+        themeToggle.textContent = "🌙";
+        localStorage.setItem("trainerDashboardTheme", "dark");
+    }
+});
